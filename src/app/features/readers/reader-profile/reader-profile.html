@@ -1,0 +1,423 @@
+<div class="profile-page">
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <header class="navbar">
+
+    <a routerLink="/" class="brand">
+
+      <span class="brand-mark">
+        ✦
+      </span>
+
+      <span class="brand-name">
+        THIS PERSON
+      </span>
+
+    </a>
+
+    <nav>
+
+      <a routerLink="/">
+        Home
+      </a>
+
+      <a routerLink="/readers" class="active">
+        Readers
+      </a>
+
+    </nav>
+
+    <a routerLink="/readers" class="back-button">
+      ← All Readers
+    </a>
+
+  </header>
+
+
+  <!-- =========================
+       PROFILE HERO
+  ========================== -->
+
+  <main>
+
+    <section class="profile-hero">
+
+      <!-- Reader visual -->
+
+      <div class="profile-image">
+
+        <div class="image-glow"></div>
+
+        <div class="avatar">
+          {{ reader.initials }}
+        </div>
+
+        <div class="available">
+          ● Available for consultation
+        </div>
+
+      </div>
+
+
+      <!-- Reader information -->
+
+      <div class="profile-info">
+
+        <div class="verified">
+          ✓ VERIFIED TAROT READER
+        </div>
+
+        <h1>
+          {{ reader.name }}
+        </h1>
+
+        <div class="rating">
+
+          <strong>
+            ★ {{ reader.rating }}
+          </strong>
+
+          <span>
+            {{ reader.reviews }} reviews
+          </span>
+
+          <span>
+            {{ reader.readings }}+ readings
+          </span>
+
+        </div>
+
+        <p class="experience">
+          {{ reader.experience }} experience
+        </p>
+
+        <p class="bio">
+          {{ reader.bio }}
+        </p>
+
+        <div class="specialties">
+
+          @for (
+            specialty of reader.specialties;
+            track specialty
+          ) {
+
+            <span>
+              {{ specialty }}
+            </span>
+
+          }
+
+        </div>
+
+        <div class="languages">
+
+          <strong>
+            Languages
+          </strong>
+
+          <span>
+            {{ reader.languages.join(' • ') }}
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONSULTATIONS
+    ========================== -->
+
+    <section class="consultation-section">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          CHOOSE YOUR EXPERIENCE
+        </div>
+
+        <h2>
+          Book a consultation
+        </h2>
+
+        <p>
+          Choose the way you'd like to connect with
+          Tarot Mystic 1111.
+        </p>
+
+      </div>
+
+
+      <div class="consultation-grid">
+
+        @for (
+          consultation of reader.consultations;
+          track consultation.type
+        ) {
+
+          <article class="consultation-card">
+
+            <div class="consultation-icon">
+              {{ consultation.icon }}
+            </div>
+
+            <h3>
+              {{ consultation.type }}
+            </h3>
+
+            <p>
+              {{ consultation.description }}
+            </p>
+
+            <div class="consultation-duration">
+
+              {{ consultation.duration }}
+
+            </div>
+
+            <div class="consultation-bottom">
+
+              <div class="price">
+
+                <small>
+                  SESSION
+                </small>
+
+                <strong>
+                  ₹{{ consultation.price }}
+                </strong>
+
+              </div>
+
+              <a
+                routerLink="/booking"
+                class="book-button"
+              >
+                Book →
+              </a>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about-reader">
+
+      <div class="about-content">
+
+        <div class="eyebrow">
+          ABOUT THE READER
+        </div>
+
+        <h2>
+          A space to pause,<br>
+          reflect and reconnect.
+        </h2>
+
+        <p>
+          Tarot readings are an opportunity to step back
+          from the noise and explore your situation from
+          another perspective.
+        </p>
+
+        <p>
+          Each consultation is personal and focused on
+          the questions that matter most to you.
+        </p>
+
+      </div>
+
+
+      <div class="about-symbol">
+
+        ✦
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REVIEWS
+    ========================== -->
+
+    <section class="reviews-section">
+
+      <div class="reviews-heading">
+
+        <div>
+
+          <div class="eyebrow">
+            CLIENT EXPERIENCES
+          </div>
+
+          <h2>
+            What people are saying
+          </h2>
+
+        </div>
+
+        <div class="overall-rating">
+
+          <strong>
+            ★ {{ reader.rating }}
+          </strong>
+
+          <span>
+            Based on {{ reader.reviews }} reviews
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="reviews-grid">
+
+        @for (
+          review of reviews;
+          track review.name
+        ) {
+
+          <article class="review-card">
+
+            <div class="review-top">
+
+              <div class="review-avatar">
+                {{ review.name.charAt(0) }}
+              </div>
+
+              <div>
+
+                <strong>
+                  {{ review.name }}
+                </strong>
+
+                <small>
+                  {{ review.date }}
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="review-stars">
+
+              @for (
+                star of [1,2,3,4,5];
+                track star
+              ) {
+
+                <span
+                  [class.muted]="star > review.rating"
+                >
+                  ★
+                </span>
+
+              }
+
+            </div>
+
+
+            <p>
+              "{{ review.comment }}"
+            </p>
+
+          </article>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="booking-cta">
+
+      <div>
+
+        <div class="eyebrow">
+          READY WHEN YOU ARE
+        </div>
+
+        <h2>
+          Your question deserves<br>
+          a little space.
+        </h2>
+
+      </div>
+
+      <!-- <a
+        routerLink="/booking"
+        class="cta-button"
+      >
+        Book a Reading →
+      </a> -->
+
+      <a
+        routerLink="/booking"
+        class="cta-button"
+      >
+        Book a Reading →
+      </a>
+
+      <!-- <button
+        class="book-button"
+        (click)="bookConsultation(
+            consultation.type,
+            consultation.price
+        )"
+        >
+        Book →
+      </button> -->
+
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="brand">
+
+      <span class="brand-mark">
+        ✦
+      </span>
+
+      <span class="brand-name">
+        THIS PERSON
+      </span>
+
+    </div>
+
+    <p>
+      Your questions. Your journey. Your guidance.
+    </p>
+
+  </footer>
+
+</div>

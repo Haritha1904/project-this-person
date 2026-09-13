@@ -1,0 +1,277 @@
+<div class="payment-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <a routerLink="/" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </a>
+
+    <a routerLink="/booking-review" class="back-button">
+      ← Back to Review
+    </a>
+
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="payment-container">
+
+    <div class="payment-heading">
+
+      <div class="eyebrow">
+        SECURE PAYMENT
+      </div>
+
+      <h1>
+        Complete your booking.
+      </h1>
+
+      <p>
+        Your session is almost confirmed.
+        Choose a payment method to continue.
+      </p>
+
+    </div>
+
+
+    <div class="payment-layout">
+
+      <!-- PAYMENT METHODS -->
+      <section class="payment-methods">
+
+        <div class="section-title">
+
+          <span>01</span>
+
+          <div>
+            <h2>Payment method</h2>
+            <p>Choose how you'd like to pay.</p>
+          </div>
+
+        </div>
+
+
+        <!-- UPI -->
+        <button
+          class="payment-method"
+          [class.selected]="paymentMethod === 'UPI'"
+          (click)="paymentMethod = 'UPI'"
+        >
+
+          <span class="method-icon">
+            UPI
+          </span>
+
+          <span class="method-content">
+
+            <strong>UPI</strong>
+
+            <small>
+              Google Pay · PhonePe · Paytm
+            </small>
+
+          </span>
+
+          <span class="radio">
+            {{ paymentMethod === 'UPI' ? '●' : '○' }}
+          </span>
+
+        </button>
+
+
+        <!-- CARD -->
+        <button
+          class="payment-method"
+          [class.selected]="paymentMethod === 'Card'"
+          (click)="paymentMethod = 'Card'"
+        >
+
+          <span class="method-icon">
+            ▣
+          </span>
+
+          <span class="method-content">
+
+            <strong>Credit / Debit Card</strong>
+
+            <small>
+              Visa · Mastercard · RuPay
+            </small>
+
+          </span>
+
+          <span class="radio">
+            {{ paymentMethod === 'Card' ? '●' : '○' }}
+          </span>
+
+        </button>
+
+
+        <!-- NET BANKING -->
+        <button
+          class="payment-method"
+          [class.selected]="paymentMethod === 'Net Banking'"
+          (click)="paymentMethod = 'Net Banking'"
+        >
+
+          <span class="method-icon">
+            ◫
+          </span>
+
+          <span class="method-content">
+
+            <strong>Net Banking</strong>
+
+            <small>
+              Pay directly through your bank
+            </small>
+
+          </span>
+
+          <span class="radio">
+            {{ paymentMethod === 'Net Banking' ? '●' : '○' }}
+          </span>
+
+        </button>
+
+      </section>
+
+
+      <!-- ORDER SUMMARY -->
+      <section class="order-summary">
+
+        <div class="summary-heading">
+
+          <span class="eyebrow">
+            YOUR BOOKING
+          </span>
+
+          <h2>
+            Session summary
+          </h2>
+
+        </div>
+
+
+        <div class="reader-mini">
+
+          <div class="avatar">
+            TM
+          </div>
+
+          <div>
+
+            <strong>
+              {{ readerName }}
+            </strong>
+
+            <small>
+              Verified Tarot Reader
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span>
+            Consultation
+          </span>
+
+          <strong>
+            {{ consultation.type }}
+          </strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span>
+            Duration
+          </span>
+
+          <strong>
+            {{ consultation.duration }}
+          </strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span>
+            Date
+          </span>
+
+          <strong>
+            {{ selectedDate }}
+          </strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span>
+            Time
+          </span>
+
+          <strong>
+            {{ selectedTime }}
+          </strong>
+
+        </div>
+
+
+        <div class="summary-total">
+
+          <span>
+            TOTAL
+          </span>
+
+          <strong>
+            ₹{{ consultation.price }}
+          </strong>
+
+        </div>
+
+
+        <button
+          class="pay-button"
+          (click)="makePayment()"
+        >
+          Pay ₹{{ consultation.price }} →
+        </button>
+
+
+        <p class="secure-note">
+          🔒 Your payment is securely processed.
+        </p>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </div>
+
+    <p>
+      Your questions. Your journey. Your guidance.
+    </p>
+
+  </footer>
+
+</div>

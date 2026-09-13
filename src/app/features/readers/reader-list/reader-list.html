@@ -1,0 +1,213 @@
+<div class="discover-page">
+
+  <!-- HEADER -->
+
+  <section class="discover-header">
+
+    <div class="eyebrow">
+      ✦ FIND YOUR GUIDANCE ✦
+    </div>
+
+    <h1>
+      Explore Tarot Readers
+    </h1>
+
+    <p>
+      Connect with experienced readers who can help
+      you explore the questions that matter most.
+    </p>
+
+  </section>
+
+
+  <!-- SEARCH -->
+
+  <section class="search-area">
+
+    <input
+      type="text"
+      placeholder="Search readers, topics or specialties..."
+    />
+
+    <button>
+      Search
+    </button>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="categories">
+
+    <button class="category active">
+      All
+    </button>
+
+    <button class="category">
+      ❤️ Love
+    </button>
+
+    <button class="category">
+      💼 Career
+    </button>
+
+    <button class="category">
+      💍 Marriage
+    </button>
+
+    <button class="category">
+      ✦ Spirituality
+    </button>
+
+    <button class="category">
+      🌱 Personal Growth
+    </button>
+
+  </section>
+
+
+  <!-- RESULTS HEADER -->
+
+  <div class="results-header">
+
+    <span>
+      {{ readers.length }} readers
+    </span>
+
+    <select>
+
+      <option>
+        Recommended
+      </option>
+
+      <option>
+        Highest Rated
+      </option>
+
+      <option>
+        Price: Low to High
+      </option>
+
+      <option>
+        Price: High to Low
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <!-- READER GRID -->
+
+  <section class="reader-grid">
+
+    @for (reader of readers; track reader.name) {
+
+      <article class="reader-card">
+
+        <!-- IMAGE -->
+
+        <div class="reader-image">
+
+          <div class="avatar">
+            {{ reader.initials }}
+          </div>
+
+          @if (reader.available) {
+
+            <div class="available">
+              ● Available now
+            </div>
+
+          }
+
+        </div>
+
+
+        <!-- DETAILS -->
+
+        <div class="reader-details">
+
+          <div class="reader-title">
+
+            <h2>
+              {{ reader.name }}
+
+              @if (reader.verified) {
+                <span class="verified">✓</span>
+              }
+
+            </h2>
+
+          </div>
+
+
+          <div class="rating">
+
+            ★ {{ reader.rating }}
+
+            <span>
+              ({{ reader.readings }} readings)
+            </span>
+
+          </div>
+
+
+          <p class="experience">
+            {{ reader.experience }} experience
+          </p>
+
+
+          <div class="specialties">
+
+            @for (
+              specialty of reader.specialties;
+              track specialty
+            ) {
+
+              <span>
+                {{ specialty }}
+              </span>
+
+            }
+
+          </div>
+
+
+          <div class="reader-footer">
+
+            <div class="price">
+
+              <small>
+                FROM
+              </small>
+
+              <strong>
+                ₹{{ reader.price }}
+              </strong>
+
+            </div>
+
+
+            <!-- <button class="view-profile">
+              View Profile →
+            </button> -->
+            <a
+                routerLink="/readers/tarot-mystic-1111"
+                 class="view-profile"
+                >
+                     View Profile →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    }
+
+  </section>
+
+</div>

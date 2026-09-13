@@ -1,0 +1,307 @@
+<div class="booking-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <a routerLink="/" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </a>
+
+    <a routerLink="/readers/tarot-mystic-1111" class="back-button">
+      ← Back to Profile
+    </a>
+
+  </header>
+
+
+  <!-- BOOKING CONTENT -->
+  <main class="booking-container">
+
+    <div class="booking-heading">
+
+      <div class="eyebrow">
+        BOOK YOUR SESSION
+      </div>
+
+      <h1>
+        Your reading starts here.
+      </h1>
+
+      <p>
+        Choose your consultation, date and time,
+        then tell us what you'd like guidance on.
+      </p>
+
+    </div>
+
+
+    <!-- READER -->
+    <section class="reader-summary">
+
+      <div class="avatar">
+        TM
+      </div>
+
+      <div>
+        <h2>Tarot Mystic 1111</h2>
+
+        <p>
+          ★ 4.9 · 500+ readings · 8+ Years experience
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- CONSULTATION TYPE -->
+    <section class="booking-section">
+
+      <div class="section-title">
+        <span>01</span>
+        <div>
+          <h2>Choose your consultation</h2>
+          <p>Select how you'd like to connect.</p>
+        </div>
+      </div>
+
+
+      <div class="consultation-options">
+
+        <button
+          class="consultation-option"
+          [class.selected]="selectedConsultation.type === 'Chat Consultation'"
+          (click)="selectedConsultation = {
+            type: 'Chat Consultation',
+            duration: '30 minutes',
+            price: 799
+          }"
+        >
+
+          <span class="option-icon">💬</span>
+
+          <span class="option-content">
+            <strong>Chat Consultation</strong>
+            <small>Private text-based reading</small>
+          </span>
+
+          <span class="option-price">
+            ₹799
+          </span>
+
+        </button>
+
+
+        <button
+          class="consultation-option"
+          [class.selected]="selectedConsultation.type === 'Voice Consultation'"
+          (click)="selectedConsultation = {
+            type: 'Voice Consultation',
+            duration: '30 minutes',
+            price: 999
+          }"
+        >
+
+          <span class="option-icon">◉</span>
+
+          <span class="option-content">
+            <strong>Voice Consultation</strong>
+            <small>Private voice call</small>
+          </span>
+
+          <span class="option-price">
+            ₹999
+          </span>
+
+        </button>
+
+
+        <button
+          class="consultation-option"
+          [class.selected]="selectedConsultation.type === 'Video Consultation'"
+          (click)="selectedConsultation = {
+            type: 'Video Consultation',
+            duration: '30 minutes',
+            price: 1499
+          }"
+        >
+
+          <span class="option-icon">◈</span>
+
+          <span class="option-content">
+            <strong>Video Consultation</strong>
+            <small>One-to-one video reading</small>
+          </span>
+
+          <span class="option-price">
+            ₹1499
+          </span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- DATE -->
+    <section class="booking-section">
+
+      <div class="section-title">
+        <span>02</span>
+
+        <div>
+          <h2>Choose a date</h2>
+          <p>Pick a convenient day for your reading.</p>
+        </div>
+      </div>
+
+
+      <div class="date-options">
+
+        @for (date of dates; track date) {
+
+          <button
+            class="date-option"
+            [class.selected]="selectedDate === date"
+            (click)="selectDate(date)"
+          >
+            {{ date }}
+          </button>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- TIME -->
+    <section class="booking-section">
+
+      <div class="section-title">
+        <span>03</span>
+
+        <div>
+          <h2>Choose a time</h2>
+          <p>Available consultation slots.</p>
+        </div>
+      </div>
+
+
+      <div class="time-options">
+
+        @for (time of availableTimes; track time) {
+
+          <button
+            class="time-option"
+            [class.selected]="selectedTime === time"
+            (click)="selectTime(time)"
+          >
+            {{ time }}
+          </button>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- QUESTION -->
+    <section class="booking-section">
+
+      <div class="section-title">
+        <span>04</span>
+
+        <div>
+          <h2>Your question</h2>
+          <p>
+            Share a little about what you'd like guidance on.
+          </p>
+        </div>
+      </div>
+
+
+      <textarea
+        [(ngModel)]="question"
+        placeholder="What would you like to ask the cards?"
+        rows="6"
+      ></textarea>
+
+    </section>
+
+
+    <!-- BOOKING SUMMARY -->
+    <section class="booking-summary">
+
+      <div>
+
+        <span class="summary-label">
+          YOUR SESSION
+        </span>
+
+        <h2>
+          {{ selectedConsultation.type }}
+        </h2>
+
+        <p>
+          {{ selectedConsultation.duration }}
+          <span>•</span>
+          {{ selectedDate || 'Date not selected' }}
+          <span>•</span>
+          {{ selectedTime || 'Time not selected' }}
+        </p>
+
+      </div>
+
+
+      <div class="summary-price">
+
+        <span>
+          TOTAL
+        </span>
+
+        <strong>
+          ₹{{ selectedConsultation.price }}
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- PAYMENT BUTTON -->
+    <div class="continue-section">
+
+      <button
+        class="continue-button"
+        (click)="continueToPayment()"
+      >
+        Continue to Payment →
+      </button>
+
+      <p>
+        You'll review your booking before payment.
+      </p>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </div>
+
+    <p>
+      Your questions. Your journey. Your guidance.
+    </p>
+
+  </footer>
+
+</div>

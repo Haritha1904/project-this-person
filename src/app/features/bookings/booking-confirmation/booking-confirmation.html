@@ -1,0 +1,199 @@
+<div class="confirmation-page">
+
+  <header class="navbar">
+
+    <a routerLink="/" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </a>
+
+  </header>
+
+
+  <main class="confirmation-container">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <div class="eyebrow">
+      BOOKING CONFIRMED
+    </div>
+
+    <h1>Your reading is booked.</h1>
+
+    <p class="intro">
+      Your consultation with {{ readerName }} has been successfully scheduled.
+      We look forward to being part of your journey.
+    </p>
+
+
+    <section class="confirmation-card">
+
+      <div class="booking-header">
+        <div>
+          <span class="label">BOOKING ID</span>
+          <strong>{{ bookingId }}</strong>
+        </div>
+
+        <span class="confirmed-badge">
+          ✓ Confirmed
+        </span>
+      </div>
+
+
+      <div class="reader-section">
+
+        <div class="avatar">
+          TM
+        </div>
+
+        <div>
+          <span class="label">YOUR READER</span>
+          <h2>{{ readerName }}</h2>
+          <p>★ 4.9 · Verified Tarot Reader</p>
+        </div>
+
+      </div>
+
+
+      <div class="details">
+
+        <div class="detail">
+          <span class="detail-icon">✦</span>
+          <div>
+            <span>Consultation</span>
+            <strong>{{ consultation.type }}</strong>
+          </div>
+        </div>
+
+
+        <div class="detail">
+          <span class="detail-icon">◷</span>
+          <div>
+            <span>Duration</span>
+            <strong>{{ consultation.duration }}</strong>
+          </div>
+        </div>
+
+
+        <div class="detail">
+          <span class="detail-icon">◫</span>
+          <div>
+            <span>Date</span>
+            <strong>{{ selectedDate }}</strong>
+          </div>
+        </div>
+
+
+        <div class="detail">
+          <span class="detail-icon">◉</span>
+          <div>
+            <span>Time</span>
+            <strong>{{ selectedTime }}</strong>
+          </div>
+        </div>
+
+      </div>
+
+
+      @if (question) {
+        <div class="question-section">
+
+          <span class="label">
+            YOUR QUESTION
+          </span>
+
+          <p>
+            {{ question }}
+          </p>
+
+        </div>
+      }
+
+
+      <div class="total-row">
+
+        <span>Total Paid</span>
+
+        <strong>
+          ₹{{ consultation.price }}
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <div class="next-steps">
+
+      <h2>What happens next?</h2>
+
+      <div class="steps">
+
+        <div class="step">
+          <span>01</span>
+          <div>
+            <strong>Prepare for your reading</strong>
+            <p>
+              Take a moment to reflect on the questions you'd like to explore.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="step">
+          <span>02</span>
+          <div>
+            <strong>Join your consultation</strong>
+            <p>
+              You'll receive the consultation details before your scheduled time.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="step">
+          <span>03</span>
+          <div>
+            <strong>Begin your journey</strong>
+            <p>
+              Connect with your reader and receive your personalized guidance.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="actions">
+
+      <a routerLink="/" class="primary-button">
+        Back to Home
+      </a>
+
+      <a routerLink="/readers" class="secondary-button">
+        Explore More Readers
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+
+    <div class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </div>
+
+    <p>
+      Your questions. Your journey. Your guidance.
+    </p>
+
+  </footer>
+
+</div>

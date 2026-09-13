@@ -1,0 +1,212 @@
+<div class="review-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <a routerLink="/" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </a>
+
+    <a routerLink="/booking" class="back-button">
+      ← Back to Booking
+    </a>
+
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="review-container">
+
+    <div class="review-heading">
+
+      <div class="eyebrow">
+        REVIEW YOUR BOOKING
+      </div>
+
+      <h1>
+        Everything looks right?
+      </h1>
+
+      <p>
+        Please review your consultation details
+        before proceeding to payment.
+      </p>
+
+    </div>
+
+
+    <!-- READER -->
+    <section class="reader-card">
+
+      <div class="avatar">
+        TM
+      </div>
+
+      <div>
+        <span class="label">
+          YOUR READER
+        </span>
+
+        <h2>
+          {{ readerName }}
+        </h2>
+
+        <p>
+          ★ 4.9 · Verified Tarot Reader
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- BOOKING DETAILS -->
+    <section class="details-card">
+
+      <div class="card-heading">
+        <span class="eyebrow">
+          SESSION DETAILS
+        </span>
+
+        <h2>
+          Your consultation
+        </h2>
+      </div>
+
+
+      <div class="detail-row">
+
+        <span>
+          Consultation
+        </span>
+
+        <strong>
+          {{ consultation.type }}
+        </strong>
+
+      </div>
+
+
+      <div class="detail-row">
+
+        <span>
+          Duration
+        </span>
+
+        <strong>
+          {{ consultation.duration }}
+        </strong>
+
+      </div>
+
+
+      <div class="detail-row">
+
+        <span>
+          Date
+        </span>
+
+        <strong>
+          {{ selectedDate }}
+        </strong>
+
+      </div>
+
+
+      <div class="detail-row">
+
+        <span>
+          Time
+        </span>
+
+        <strong>
+          {{ selectedTime }}
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUESTION -->
+    <section class="question-card">
+
+      <div class="card-heading">
+
+        <span class="eyebrow">
+          YOUR QUESTION
+        </span>
+
+        <h2>
+          What you'd like guidance on
+        </h2>
+
+      </div>
+
+      <p class="question-text">
+
+        {{ question || 'No question was provided.' }}
+
+      </p>
+
+    </section>
+
+
+    <!-- TOTAL -->
+    <section class="total-card">
+
+      <div>
+
+        <span class="label">
+          TOTAL SESSION PRICE
+        </span>
+
+        <p>
+          {{ consultation.type }}
+          · {{ consultation.duration }}
+        </p>
+
+      </div>
+
+
+      <strong>
+        ₹{{ consultation.price }}
+      </strong>
+
+    </section>
+
+
+    <!-- PAYMENT -->
+    <section class="payment-section">
+
+      <button
+        class="payment-button"
+        (click)="confirmBooking()"
+      >
+        Proceed to Payment →
+      </button>
+
+      <p>
+        You'll be redirected to secure payment.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </div>
+
+    <p>
+      Your questions. Your journey. Your guidance.
+    </p>
+
+  </footer>
+
+</div>

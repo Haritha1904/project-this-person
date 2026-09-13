@@ -1,0 +1,245 @@
+<div class="my-bookings-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <a routerLink="/" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">THIS PERSON</span>
+    </a>
+
+    <a routerLink="/readers" class="back-button">
+      Find a Reader →
+    </a>
+
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="bookings-container">
+
+    <div class="bookings-heading">
+
+      <div class="eyebrow">
+        YOUR JOURNEY
+      </div>
+
+      <h1>
+        My bookings.
+      </h1>
+
+      <p>
+        View your upcoming and previous tarot consultations.
+      </p>
+
+    </div>
+
+
+    <!-- UPCOMING BOOKINGS -->
+    <section class="bookings-section">
+
+      <div class="section-heading">
+
+        <span>01</span>
+
+        <div>
+          <h2>Upcoming consultations</h2>
+          <p>Your scheduled readings.</p>
+        </div>
+
+      </div>
+
+
+      @if (bookings.length === 0) {
+
+        <div class="empty-state">
+
+          <div class="empty-icon">
+            ✦
+          </div>
+
+          <h3>No bookings yet</h3>
+
+          <p>
+            Your next reading could be the beginning of
+            something meaningful.
+          </p>
+
+          <a routerLink="/readers" class="primary-button">
+            Find a Reader →
+          </a>
+
+        </div>
+
+      } @else {
+
+        <div class="booking-list">
+
+          @for (booking of bookings; track booking.id) {
+
+            <article class="booking-card">
+
+              <div class="booking-top">
+
+                <div class="reader-info">
+
+                  <div class="avatar">
+                    TM
+                  </div>
+
+                  <div>
+
+                    <span class="label">
+                      YOUR READER
+                    </span>
+
+                    <h3>
+                      {{ booking.readerName }}
+                    </h3>
+
+                    <p>
+                      ★ 4.9 · Verified Tarot Reader
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                <span class="status-badge">
+                  ✓ {{ booking.status }}
+                </span>
+
+              </div>
+
+
+              <div class="booking-details">
+
+                <div class="booking-detail">
+
+                  <span class="detail-icon">
+                    ✦
+                  </span>
+
+                  <div>
+                    <span>Consultation</span>
+                    <strong>
+                      {{ booking.consultationType }}
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                <div class="booking-detail">
+
+                  <span class="detail-icon">
+                    ◫
+                  </span>
+
+                  <div>
+                    <span>Date</span>
+                    <strong>
+                      {{ booking.date }}
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                <div class="booking-detail">
+
+                  <span class="detail-icon">
+                    ◷
+                  </span>
+
+                  <div>
+                    <span>Time</span>
+                    <strong>
+                      {{ booking.time }}
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                <div class="booking-detail">
+
+                  <span class="detail-icon">
+                    ₹
+                  </span>
+
+                  <div>
+                    <span>Amount</span>
+                    <strong>
+                      ₹{{ booking.price }}
+                    </strong>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="booking-footer">
+
+                <div>
+
+                  <span class="booking-id-label">
+                    BOOKING ID
+                  </span>
+
+                  <strong>
+                    {{ booking.id }}
+                  </strong>
+
+                </div>
+
+
+                <a
+                  [routerLink]="['/booking-confirmation']"
+                  [queryParams]="{
+                    bookingId: booking.id
+                  }"
+                  class="view-button"
+                >
+                  View Booking →
+                </a>
+
+              </div>
+
+            </article>
+
+          }
+
+        </div>
+
+      }
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="brand">
+
+      <span class="brand-mark">
+        ✦
+      </span>
+
+      <span class="brand-name">
+        THIS PERSON
+      </span>
+
+    </div>
+
+    <p>
+      Your questions. Your journey. Your guidance.
+    </p>
+
+  </footer>
+
+</div>
