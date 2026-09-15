@@ -1,107 +1,234 @@
 <div class="confirmation-page">
 
-  <header class="navbar">
-
-    <a routerLink="/" class="brand">
-      <span class="brand-mark">✦</span>
-      <span class="brand-name">THIS PERSON</span>
-    </a>
-
-  </header>
-
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
 
   <main class="confirmation-container">
 
-    <div class="success-icon">
-      ✓
-    </div>
 
-    <div class="eyebrow">
-      BOOKING CONFIRMED
-    </div>
+    <!-- =================================================
+         SUCCESS HERO
+    ================================================== -->
 
-    <h1>Your reading is booked.</h1>
+    <section class="success-hero">
 
-    <p class="intro">
-      Your consultation with {{ readerName }} has been successfully scheduled.
-      We look forward to being part of your journey.
-    </p>
+      <div class="success-decoration success-star-1">✦</div>
+      <div class="success-decoration success-star-2">✧</div>
+      <div class="success-decoration success-star-3">✦</div>
 
+
+      <div class="success-icon">
+
+        <span>✓</span>
+
+      </div>
+
+
+      <div class="eyebrow">
+
+        <span></span>
+
+        BOOKING CONFIRMED
+
+        <span></span>
+
+      </div>
+
+
+      <h1>
+        Your reading<br>
+        <em>is booked.</em>
+      </h1>
+
+
+      <p class="intro">
+        Your consultation with {{ readerName }}
+        has been successfully scheduled.
+        We look forward to being part of your journey.
+      </p>
+
+    </section>
+
+
+    <!-- =================================================
+         BOOKING CARD
+    ================================================== -->
 
     <section class="confirmation-card">
 
+
+      <!-- BOOKING HEADER -->
+
       <div class="booking-header">
+
         <div>
-          <span class="label">BOOKING ID</span>
-          <strong>{{ bookingId }}</strong>
+
+          <span class="label">
+            BOOKING ID
+          </span>
+
+          <strong>
+            {{ bookingId }}
+          </strong>
+
         </div>
 
+
         <span class="confirmed-badge">
-          ✓ Confirmed
+          <span>✓</span>
+          Confirmed
         </span>
+
       </div>
 
+
+      <div class="card-divider"></div>
+
+
+      <!-- READER -->
 
       <div class="reader-section">
 
-        <div class="avatar">
-          TM
+        <div class="avatar-wrap">
+
+          <div class="avatar-ring"></div>
+
+          <div class="avatar">
+            TM
+          </div>
+
+          <span class="online-dot"></span>
+
         </div>
 
-        <div>
-          <span class="label">YOUR READER</span>
-          <h2>{{ readerName }}</h2>
-          <p>★ 4.9 · Verified Tarot Reader</p>
+
+        <div class="reader-info">
+
+          <span class="label">
+            YOUR READER
+          </span>
+
+          <h2>
+            {{ readerName }}
+          </h2>
+
+          <p>
+            <span class="rating">★ 4.9</span>
+            · Verified Tarot Reader
+          </p>
+
         </div>
 
       </div>
 
+
+      <!-- DETAILS -->
 
       <div class="details">
 
+
         <div class="detail">
-          <span class="detail-icon">✦</span>
+
+          <span class="detail-icon">
+            ✦
+          </span>
+
           <div>
-            <span>Consultation</span>
-            <strong>{{ consultation.type }}</strong>
+
+            <span>
+              Consultation
+            </span>
+
+            <strong>
+              {{ consultation.type }}
+            </strong>
+
           </div>
+
         </div>
 
 
         <div class="detail">
-          <span class="detail-icon">◷</span>
+
+          <span class="detail-icon">
+            ◷
+          </span>
+
           <div>
-            <span>Duration</span>
-            <strong>{{ consultation.duration }}</strong>
+
+            <span>
+              Duration
+            </span>
+
+            <strong>
+              {{ consultation.duration }}
+            </strong>
+
           </div>
+
         </div>
 
 
         <div class="detail">
-          <span class="detail-icon">◫</span>
+
+          <span class="detail-icon">
+            ◫
+          </span>
+
           <div>
-            <span>Date</span>
-            <strong>{{ selectedDate }}</strong>
+
+            <span>
+              Date
+            </span>
+
+            <strong>
+              {{ selectedDate }}
+            </strong>
+
           </div>
+
         </div>
 
 
         <div class="detail">
-          <span class="detail-icon">◉</span>
+
+          <span class="detail-icon">
+            ◉
+          </span>
+
           <div>
-            <span>Time</span>
-            <strong>{{ selectedTime }}</strong>
+
+            <span>
+              Time
+            </span>
+
+            <strong>
+              {{ selectedTime }}
+            </strong>
+
           </div>
+
         </div>
 
       </div>
 
 
-      @if (question) {
-        <div class="question-section">
+      <!-- QUESTION -->
 
-          <span class="label">
-            YOUR QUESTION
+      @if (question) {
+
+      <div class="question-section">
+
+        <span class="label">
+          YOUR QUESTION
+        </span>
+
+
+        <div class="question-box">
+
+          <span class="quote">
+            “
           </span>
 
           <p>
@@ -109,12 +236,28 @@
           </p>
 
         </div>
+
+      </div>
+
       }
 
 
+      <!-- TOTAL -->
+
       <div class="total-row">
 
-        <span>Total Paid</span>
+        <div>
+
+          <span>
+            TOTAL PAID
+          </span>
+
+          <small>
+            Payment successfully recorded
+          </small>
+
+        </div>
+
 
         <strong>
           ₹{{ consultation.price }}
@@ -125,69 +268,162 @@
     </section>
 
 
-    <div class="next-steps">
+    <!-- =================================================
+         NEXT STEPS
+    ================================================== -->
 
-      <h2>What happens next?</h2>
+    <section class="next-steps">
+
+      <div class="next-heading">
+
+        <span class="section-eyebrow">
+          YOUR JOURNEY CONTINUES
+        </span>
+
+        <h2>
+          What happens next?
+        </h2>
+
+        <p>
+          Here's what you can expect from here.
+        </p>
+
+      </div>
+
 
       <div class="steps">
 
+
+        <!-- STEP 01 -->
+
         <div class="step">
-          <span>01</span>
-          <div>
-            <strong>Prepare for your reading</strong>
-            <p>
-              Take a moment to reflect on the questions you'd like to explore.
-            </p>
+
+          <div class="step-number">
+            01
           </div>
+
+          <div class="step-content">
+
+            <span class="step-icon">
+              ✦
+            </span>
+
+            <strong>
+              Prepare for your reading
+            </strong>
+
+            <p>
+              Take a moment to reflect on the questions
+              you'd like to explore.
+            </p>
+
+          </div>
+
         </div>
 
 
+        <!-- STEP 02 -->
+
         <div class="step">
-          <span>02</span>
-          <div>
-            <strong>Join your consultation</strong>
-            <p>
-              You'll receive the consultation details before your scheduled time.
-            </p>
+
+          <div class="step-number">
+            02
           </div>
+
+          <div class="step-content">
+
+            <span class="step-icon">
+              ◷
+            </span>
+
+            <strong>
+              Join your consultation
+            </strong>
+
+            <p>
+              You'll receive the consultation details
+              before your scheduled time.
+            </p>
+
+          </div>
+
         </div>
 
 
+        <!-- STEP 03 -->
+
         <div class="step">
-          <span>03</span>
-          <div>
-            <strong>Begin your journey</strong>
-            <p>
-              Connect with your reader and receive your personalized guidance.
-            </p>
+
+          <div class="step-number">
+            03
           </div>
+
+          <div class="step-content">
+
+            <span class="step-icon">
+              ✧
+            </span>
+
+            <strong>
+              Begin your journey
+            </strong>
+
+            <p>
+              Connect with your reader and receive
+              your personalized guidance.
+            </p>
+
+          </div>
+
         </div>
 
       </div>
 
-    </div>
+    </section>
 
 
-    <div class="actions">
+    <!-- =================================================
+         ACTIONS
+    ================================================== -->
+
+    <section class="actions">
 
       <a routerLink="/" class="primary-button">
-        Back to Home
+        <span>
+          Back to Home
+        </span>
+
+        <span>
+          →
+        </span>
       </a>
+
 
       <a routerLink="/readers" class="secondary-button">
         Explore More Readers
       </a>
 
-    </div>
+    </section>
 
   </main>
 
 
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
   <footer>
 
-    <div class="brand">
-      <span class="brand-mark">✦</span>
-      <span class="brand-name">THIS PERSON</span>
+    <div class="footer-brand">
+
+      <span class="brand-mark">
+        ✦
+      </span>
+
+      <span class="brand-name">
+        THIS PERSON
+      </span>
+
     </div>
 
     <p>

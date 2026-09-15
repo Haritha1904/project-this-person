@@ -1,150 +1,197 @@
 <div class="payment-page">
 
-  <!-- NAVBAR -->
-  <header class="navbar">
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
 
-    <a routerLink="/" class="brand">
-      <span class="brand-mark">✦</span>
-      <span class="brand-name">THIS PERSON</span>
-    </a>
-
-    <a routerLink="/booking-review" class="back-button">
-      ← Back to Review
-    </a>
-
-  </header>
-
-
-  <!-- MAIN -->
   <main class="payment-container">
 
-    <div class="payment-heading">
+    <!-- HERO -->
+    <section class="payment-hero">
+
+      <div class="hero-star hero-star-1">✦</div>
+      <div class="hero-star hero-star-2">✧</div>
 
       <div class="eyebrow">
+        <span></span>
         SECURE PAYMENT
+        <span></span>
       </div>
 
       <h1>
-        Complete your booking.
+        Complete your<br>
+        <em>booking.</em>
       </h1>
 
       <p>
         Your session is almost confirmed.
-        Choose a payment method to continue.
+        Choose your preferred payment method to continue.
       </p>
 
-    </div>
+    </section>
 
+
+    <!-- =====================================================
+         PAYMENT LAYOUT
+    ====================================================== -->
 
     <div class="payment-layout">
 
-      <!-- PAYMENT METHODS -->
+
+      <!-- =================================================
+           LEFT — PAYMENT METHODS
+      ================================================== -->
+
       <section class="payment-methods">
 
-        <div class="section-title">
+        <div class="section-heading">
 
-          <span>01</span>
+          <div class="step-number">
+            01
+          </div>
 
           <div>
-            <h2>Payment method</h2>
-            <p>Choose how you'd like to pay.</p>
+            <span class="section-eyebrow">
+              HOW WOULD YOU LIKE TO PAY?
+            </span>
+
+            <h2>
+              Payment method
+            </h2>
+
+            <p>
+              Select your preferred payment option.
+            </p>
           </div>
 
         </div>
 
 
-        <!-- UPI -->
-        <button
-          class="payment-method"
-          [class.selected]="paymentMethod === 'UPI'"
-          (click)="paymentMethod = 'UPI'"
-        >
-
-          <span class="method-icon">
-            UPI
-          </span>
-
-          <span class="method-content">
-
-            <strong>UPI</strong>
-
-            <small>
-              Google Pay · PhonePe · Paytm
-            </small>
-
-          </span>
-
-          <span class="radio">
-            {{ paymentMethod === 'UPI' ? '●' : '○' }}
-          </span>
-
-        </button>
+        <div class="methods-list">
 
 
-        <!-- CARD -->
-        <button
-          class="payment-method"
-          [class.selected]="paymentMethod === 'Card'"
-          (click)="paymentMethod = 'Card'"
-        >
+          <!-- UPI -->
 
-          <span class="method-icon">
-            ▣
-          </span>
+          <button class="payment-method" [class.selected]="paymentMethod === 'UPI'" (click)="paymentMethod = 'UPI'">
 
-          <span class="method-content">
+            <div class="method-icon upi-icon">
+              <span>UPI</span>
+            </div>
 
-            <strong>Credit / Debit Card</strong>
+            <div class="method-content">
 
-            <small>
-              Visa · Mastercard · RuPay
-            </small>
+              <strong>
+                UPI
+              </strong>
 
-          </span>
+              <small>
+                Google Pay · PhonePe · Paytm
+              </small>
 
-          <span class="radio">
-            {{ paymentMethod === 'Card' ? '●' : '○' }}
-          </span>
+            </div>
 
-        </button>
+            <div class="method-radio">
+              <span [class.active]="paymentMethod === 'UPI'"></span>
+            </div>
+
+          </button>
 
 
-        <!-- NET BANKING -->
-        <button
-          class="payment-method"
-          [class.selected]="paymentMethod === 'Net Banking'"
-          (click)="paymentMethod = 'Net Banking'"
-        >
+          <!-- CARD -->
 
-          <span class="method-icon">
-            ◫
-          </span>
+          <button class="payment-method" [class.selected]="paymentMethod === 'Card'" (click)="paymentMethod = 'Card'">
 
-          <span class="method-content">
+            <div class="method-icon card-icon">
+              ▣
+            </div>
 
-            <strong>Net Banking</strong>
+            <div class="method-content">
 
-            <small>
-              Pay directly through your bank
-            </small>
+              <strong>
+                Credit / Debit Card
+              </strong>
 
-          </span>
+              <small>
+                Visa · Mastercard · RuPay
+              </small>
 
-          <span class="radio">
-            {{ paymentMethod === 'Net Banking' ? '●' : '○' }}
-          </span>
+            </div>
 
-        </button>
+            <div class="method-radio">
+              <span [class.active]="paymentMethod === 'Card'"></span>
+            </div>
+
+          </button>
+
+
+          <!-- NET BANKING -->
+
+          <button class="payment-method" [class.selected]="paymentMethod === 'Net Banking'"
+            (click)="paymentMethod = 'Net Banking'">
+
+            <div class="method-icon bank-icon">
+              ◫
+            </div>
+
+            <div class="method-content">
+
+              <strong>
+                Net Banking
+              </strong>
+
+              <small>
+                Pay directly through your bank
+              </small>
+
+            </div>
+
+            <div class="method-radio">
+              <span [class.active]="paymentMethod === 'Net Banking'"></span>
+            </div>
+
+          </button>
+
+        </div>
+
+
+        <!-- SECURITY -->
+
+        <div class="payment-security">
+
+          <div class="security-icon">
+            ✓
+          </div>
+
+          <div>
+            <strong>
+              Safe & secure payment
+            </strong>
+
+            <p>
+              Your payment information is protected
+              during the transaction.
+            </p>
+          </div>
+
+        </div>
 
       </section>
 
 
-      <!-- ORDER SUMMARY -->
+      <!-- =================================================
+           RIGHT — ORDER SUMMARY
+      ================================================== -->
+
       <section class="order-summary">
+
+        <div class="summary-decoration">
+          ✦
+        </div>
+
 
         <div class="summary-heading">
 
-          <span class="eyebrow">
+          <span class="summary-eyebrow">
             YOUR BOOKING
           </span>
 
@@ -155,84 +202,105 @@
         </div>
 
 
+        <!-- READER -->
+
         <div class="reader-mini">
 
-          <div class="avatar">
+          <div class="mini-avatar">
             TM
           </div>
 
-          <div>
+          <div class="reader-mini-info">
 
             <strong>
               {{ readerName }}
             </strong>
 
-            <small>
-              Verified Tarot Reader
-            </small>
+            <span>
+              ✓ Verified Tarot Reader
+            </span>
 
           </div>
 
         </div>
 
 
-        <div class="summary-row">
+        <!-- DIVIDER -->
 
-          <span>
-            Consultation
-          </span>
+        <div class="summary-divider"></div>
 
-          <strong>
-            {{ consultation.type }}
-          </strong>
+
+        <!-- DETAILS -->
+
+        <div class="summary-details">
+
+          <div class="summary-row">
+
+            <span>
+              Consultation
+            </span>
+
+            <strong>
+              {{ consultation.type }}
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              Duration
+            </span>
+
+            <strong>
+              {{ consultation.duration }}
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              Date
+            </span>
+
+            <strong>
+              {{ selectedDate }}
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              Time
+            </span>
+
+            <strong>
+              {{ selectedTime }}
+            </strong>
+
+          </div>
 
         </div>
 
 
-        <div class="summary-row">
-
-          <span>
-            Duration
-          </span>
-
-          <strong>
-            {{ consultation.duration }}
-          </strong>
-
-        </div>
-
-
-        <div class="summary-row">
-
-          <span>
-            Date
-          </span>
-
-          <strong>
-            {{ selectedDate }}
-          </strong>
-
-        </div>
-
-
-        <div class="summary-row">
-
-          <span>
-            Time
-          </span>
-
-          <strong>
-            {{ selectedTime }}
-          </strong>
-
-        </div>
-
+        <!-- TOTAL -->
 
         <div class="summary-total">
 
-          <span>
-            TOTAL
-          </span>
+          <div>
+            <span>
+              TOTAL
+            </span>
+
+            <small>
+              Inclusive of consultation fee
+            </small>
+          </div>
 
           <strong>
             ₹{{ consultation.price }}
@@ -241,17 +309,32 @@
         </div>
 
 
-        <button
-          class="pay-button"
-          (click)="makePayment()"
-        >
-          Pay ₹{{ consultation.price }} →
+        <!-- PAY -->
+
+        <button class="pay-button" (click)="makePayment()">
+
+          <span>
+            Pay ₹{{ consultation.price }}
+          </span>
+
+          <span class="pay-arrow">
+            →
+          </span>
+
         </button>
 
 
-        <p class="secure-note">
-          🔒 Your payment is securely processed.
-        </p>
+        <div class="secure-note">
+
+          <span class="lock-icon">
+            🔒
+          </span>
+
+          <span>
+            Securely processed payment
+          </span>
+
+        </div>
 
       </section>
 
@@ -260,12 +343,22 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
   <footer>
 
-    <div class="brand">
-      <span class="brand-mark">✦</span>
-      <span class="brand-name">THIS PERSON</span>
+    <div class="footer-brand">
+
+      <span class="brand-mark">
+        ✦
+      </span>
+
+      <span class="brand-name">
+        THIS PERSON
+      </span>
+
     </div>
 
     <p>

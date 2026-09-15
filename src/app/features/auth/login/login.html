@@ -1,30 +1,82 @@
 <div class="login-page">
 
-  <!-- LEFT SIDE -->
+  <!-- =====================================================
+       LEFT VISUAL PANEL
+  ====================================================== -->
+
   <section class="login-visual">
 
+    <!-- Decorative elements -->
+    <div class="visual-orbit orbit-one"></div>
+    <div class="visual-orbit orbit-two"></div>
+
+    <div class="visual-star star-one">✦</div>
+    <div class="visual-star star-two">✧</div>
+    <div class="visual-star star-three">✦</div>
+
+
+    <!-- BRAND -->
+
     <a routerLink="/" class="brand">
-      <span class="brand-mark">✦</span>
-      <span class="brand-name">THIS PERSON</span>
+
+      <span class="brand-mark">
+        ✦
+      </span>
+
+      <span class="brand-name">
+        THIS PERSON
+      </span>
+
     </a>
+
+
+    <!-- VISUAL CONTENT -->
 
     <div class="visual-content">
 
-      <div class="symbol">
-        ✦
+      <div class="symbol-wrap">
+
+        <div class="symbol-ring"></div>
+
+        <div class="symbol">
+          ✦
+        </div>
+
       </div>
+
+
+      <span class="visual-eyebrow">
+        YOUR JOURNEY CONTINUES
+      </span>
+
 
       <h1>
         Some answers<br>
-        are already within you.
+        are already <em>within you.</em>
       </h1>
 
+
       <p>
-        Return to your journey and continue exploring
-        the questions that matter to you.
+        Return to your space, revisit your questions,
+        and continue exploring the guidance that matters
+        to you.
       </p>
 
+
+      <div class="visual-line"></div>
+
+
+      <div class="visual-quote">
+        <span>“</span>
+        <p>
+          Pause. Reflect. Listen to yourself.
+        </p>
+      </div>
+
     </div>
+
+
+    <!-- FOOTER -->
 
     <div class="visual-footer">
       Your questions. Your journey. Your guidance.
@@ -33,28 +85,54 @@
   </section>
 
 
-  <!-- RIGHT SIDE -->
+  <!-- =====================================================
+       RIGHT LOGIN SECTION
+  ====================================================== -->
+
   <section class="login-section">
 
     <div class="login-container">
 
+
+      <!-- MOBILE BRAND -->
+
       <div class="mobile-brand">
+
         <a routerLink="/" class="brand">
-          <span class="brand-mark">✦</span>
-          <span class="brand-name">THIS PERSON</span>
+
+          <span class="brand-mark">
+            ✦
+          </span>
+
+          <span class="brand-name">
+            THIS PERSON
+          </span>
+
         </a>
+
       </div>
 
+
+      <!-- LOGIN HEADING -->
 
       <div class="login-heading">
 
         <div class="eyebrow">
+
+          <span></span>
+
           WELCOME BACK
+
+          <span></span>
+
         </div>
 
+
         <h2>
-          Sign in to your journey.
+          Sign in to<br>
+          <em>your journey.</em>
         </h2>
+
 
         <p>
           Access your bookings and continue your
@@ -64,8 +142,14 @@
       </div>
 
 
-      <!-- LOGIN FORM -->
+      <!-- =================================================
+           LOGIN FORM
+      ================================================== -->
+
       <form (ngSubmit)="login()" class="login-form">
+
+
+        <!-- EMAIL -->
 
         <div class="form-group">
 
@@ -73,17 +157,21 @@
             Email address
           </label>
 
-          <input
-            id="email"
-            type="email"
-            name="email"
-            [(ngModel)]="email"
-            placeholder="you@example.com"
-            autocomplete="email"
-          >
+          <div class="input-wrapper">
+
+            <span class="input-icon">
+              @
+            </span>
+
+            <input id="email" type="email" name="email" [(ngModel)]="email" placeholder="you@example.com"
+              autocomplete="email">
+
+          </div>
 
         </div>
 
+
+        <!-- PASSWORD -->
 
         <div class="form-group">
 
@@ -93,20 +181,14 @@
 
           <div class="password-wrapper">
 
-            <input
-              id="password"
-              [type]="showPassword ? 'text' : 'password'"
-              name="password"
-              [(ngModel)]="password"
-              placeholder="Enter your password"
-              autocomplete="current-password"
-            >
+            <span class="input-icon">
+              •
+            </span>
 
-            <button
-              type="button"
-              class="password-toggle"
-              (click)="togglePassword()"
-            >
+            <input id="password" [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="password"
+              placeholder="Enter your password" autocomplete="current-password">
+
+            <button type="button" class="password-toggle" (click)="togglePassword()">
               {{ showPassword ? 'Hide' : 'Show' }}
             </button>
 
@@ -115,14 +197,15 @@
         </div>
 
 
+        <!-- OPTIONS -->
+
         <div class="form-options">
 
           <label class="remember-me">
 
-            <input
-              type="checkbox"
-              name="remember"
-            >
+            <input type="checkbox" name="remember">
+
+            <span class="custom-checkbox"></span>
 
             <span>
               Remember me
@@ -138,32 +221,54 @@
         </div>
 
 
-        <button
-          type="submit"
-          class="login-button"
-        >
-          Sign In →
+        <!-- LOGIN -->
+
+        <button type="submit" class="login-button">
+
+          <span>
+            Sign In
+          </span>
+
+          <span class="button-arrow">
+            →
+          </span>
+
         </button>
 
       </form>
 
 
+      <!-- DIVIDER -->
+
       <div class="divider">
-        <span>or</span>
+
+        <span></span>
+
+        <small>
+          OR
+        </small>
+
+        <span></span>
+
       </div>
 
 
-      <button
-        type="button"
-        class="google-button"
-      >
+      <!-- GOOGLE -->
+
+      <button type="button" class="google-button">
+
         <span class="google-icon">
           G
         </span>
 
-        Continue with Google
+        <span>
+          Continue with Google
+        </span>
+
       </button>
 
+
+      <!-- SIGNUP -->
 
       <p class="signup-text">
 
@@ -175,6 +280,8 @@
 
       </p>
 
+
+      <!-- BACK HOME -->
 
       <a routerLink="/" class="back-home">
         ← Back to Home

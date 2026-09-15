@@ -1,0 +1,43 @@
+<header class="navbar">
+  <div class="navbar-container">
+    <a routerLink="/" class="brand">
+      <span class="brand-text">THIS PERSON</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-links desktop-only">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/readers" routerLinkActive="active">Find a Reader</a>
+      <!-- <a routerLink="/#how-it-works">How It Works</a> -->
+      <a href="/#how-it-works">How It Works</a>
+      <a routerLink="/my-bookings" routerLinkActive="active">My Bookings</a>
+    </nav>
+
+    <div class="nav-actions desktop-only">
+      <a routerLink="/login" class="login-link">Login</a>
+      <a routerLink="/readers" class="btn-primary">Find a Reader</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" (click)="toggleMenu()">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation Dropdown -->
+  @if (isMenuOpen) {
+  <div class="mobile-menu">
+    <nav class="mobile-nav-links">
+      <a routerLink="/" (click)="toggleMenu()">Home</a>
+      <a routerLink="/readers" (click)="toggleMenu()">Find a Reader</a>
+      <!-- <a routerLink="/#how-it-works" (click)="toggleMenu()">How It Works</a> -->
+      <a href="/#how-it-works" (click)="toggleMenu()">How It Works</a>
+      <a routerLink="/my-bookings" (click)="toggleMenu()">My Bookings</a>
+    </nav>
+    <div class="mobile-nav-actions">
+      <a routerLink="/login" class="login-link" (click)="toggleMenu()">Login</a>
+      <a routerLink="/readers" class="btn-primary" (click)="toggleMenu()">Find a Reader</a>
+    </div>
+  </div>
+  }
+</header>

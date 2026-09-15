@@ -1,141 +1,287 @@
 <div class="booking-page">
 
-  <!-- NAVBAR -->
-  <header class="navbar">
+  <!-- =====================================================
+       BOOKING MAIN
+  ====================================================== -->
 
-    <a routerLink="/" class="brand">
-      <span class="brand-mark">✦</span>
-      <span class="brand-name">THIS PERSON</span>
-    </a>
-
-    <a routerLink="/readers/tarot-mystic-1111" class="back-button">
-      ← Back to Profile
-    </a>
-
-  </header>
-
-
-  <!-- BOOKING CONTENT -->
   <main class="booking-container">
 
-    <div class="booking-heading">
+    <!-- HERO -->
+    <section class="booking-hero">
+
+      <div class="hero-decoration hero-star-1">✦</div>
+      <div class="hero-decoration hero-star-2">✦</div>
+      <div class="hero-decoration hero-star-3">✧</div>
 
       <div class="eyebrow">
+        <span></span>
         BOOK YOUR SESSION
+        <span></span>
       </div>
 
       <h1>
-        Your reading starts here.
+        Your reading<br>
+        <em>starts here.</em>
       </h1>
 
       <p>
-        Choose your consultation, date and time,
-        then tell us what you'd like guidance on.
+        Choose your consultation, find a convenient time,
+        and share what's on your mind.
       </p>
-
-    </div>
-
-
-    <!-- READER -->
-    <section class="reader-summary">
-
-      <div class="avatar">
-        TM
-      </div>
-
-      <div>
-        <h2>Tarot Mystic 1111</h2>
-
-        <p>
-          ★ 4.9 · 500+ readings · 8+ Years experience
-        </p>
-      </div>
 
     </section>
 
 
-    <!-- CONSULTATION TYPE -->
-    <section class="booking-section">
+    <!-- =====================================================
+         READER CARD
+    ====================================================== -->
 
-      <div class="section-title">
-        <span>01</span>
-        <div>
-          <h2>Choose your consultation</h2>
-          <p>Select how you'd like to connect.</p>
+    <section class="reader-card">
+
+      <div class="reader-card-left">
+
+        <div class="reader-avatar-wrap">
+          <div class="avatar-ring"></div>
+          <div class="avatar">
+            TM
+          </div>
+          <span class="online-dot"></span>
         </div>
+
+        <div class="reader-details">
+
+          <span class="reader-label">
+            YOUR READER
+          </span>
+
+          <h2>
+            Tarot Mystic 1111
+          </h2>
+
+          <div class="reader-meta">
+            <span class="rating">★ 4.9</span>
+            <span>500+ readings</span>
+            <span>8+ Years experience</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <a routerLink="/readers/tarot-mystic-1111" class="profile-link">
+        View Profile
+        <span>↗</span>
+      </a>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROGRESS
+    ====================================================== -->
+
+    <div class="booking-progress">
+
+      <div class="progress-item active">
+        <span>01</span>
+        <small>Consultation</small>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-item">
+        <span>02</span>
+        <small>Date</small>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-item">
+        <span>03</span>
+        <small>Time</small>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-item">
+        <span>04</span>
+        <small>Question</small>
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         STEP 01 — CONSULTATION
+    ====================================================== -->
+
+    <section class="booking-section consultation-section">
+
+      <div class="section-heading">
+
+        <div class="step-number">
+          01
+        </div>
+
+        <div>
+          <span class="section-eyebrow">
+            THE EXPERIENCE
+          </span>
+
+          <h2>
+            Choose your consultation
+          </h2>
+
+          <p>
+            Select the way you'd like to connect.
+          </p>
+        </div>
+
       </div>
 
 
       <div class="consultation-options">
 
-        <button
-          class="consultation-option"
-          [class.selected]="selectedConsultation.type === 'Chat Consultation'"
+        <!-- CHAT -->
+
+        <button class="consultation-option" [class.selected]="selectedConsultation.type === 'Chat Consultation'"
           (click)="selectedConsultation = {
             type: 'Chat Consultation',
             duration: '30 minutes',
             price: 799
-          }"
-        >
+          }">
 
-          <span class="option-icon">💬</span>
+          <div class="option-top">
 
-          <span class="option-content">
-            <strong>Chat Consultation</strong>
-            <small>Private text-based reading</small>
-          </span>
+            <div class="option-icon chat-icon">
+              💬
+            </div>
 
-          <span class="option-price">
-            ₹799
-          </span>
+            <span class="selection-check" [class.visible]="selectedConsultation.type === 'Chat Consultation'">
+              ✓
+            </span>
+
+          </div>
+
+          <div class="option-content">
+
+            <h3>
+              Chat Consultation
+            </h3>
+
+            <p>
+              A private text-based tarot reading.
+            </p>
+
+          </div>
+
+          <div class="option-footer">
+
+            <span>
+              30 minutes
+            </span>
+
+            <strong>
+              ₹799
+            </strong>
+
+          </div>
 
         </button>
 
 
-        <button
-          class="consultation-option"
-          [class.selected]="selectedConsultation.type === 'Voice Consultation'"
+        <!-- VOICE -->
+
+        <button class="consultation-option" [class.selected]="selectedConsultation.type === 'Voice Consultation'"
           (click)="selectedConsultation = {
             type: 'Voice Consultation',
             duration: '30 minutes',
             price: 999
-          }"
-        >
+          }">
 
-          <span class="option-icon">◉</span>
+          <div class="option-top">
 
-          <span class="option-content">
-            <strong>Voice Consultation</strong>
-            <small>Private voice call</small>
-          </span>
+            <div class="option-icon voice-icon">
+              ◉
+            </div>
 
-          <span class="option-price">
-            ₹999
-          </span>
+            <span class="selection-check" [class.visible]="selectedConsultation.type === 'Voice Consultation'">
+              ✓
+            </span>
+
+          </div>
+
+          <div class="option-content">
+
+            <h3>
+              Voice Consultation
+            </h3>
+
+            <p>
+              A private one-to-one voice reading.
+            </p>
+
+          </div>
+
+          <div class="option-footer">
+
+            <span>
+              30 minutes
+            </span>
+
+            <strong>
+              ₹999
+            </strong>
+
+          </div>
 
         </button>
 
 
-        <button
-          class="consultation-option"
-          [class.selected]="selectedConsultation.type === 'Video Consultation'"
+        <!-- VIDEO -->
+
+        <button class="consultation-option" [class.selected]="selectedConsultation.type === 'Video Consultation'"
           (click)="selectedConsultation = {
             type: 'Video Consultation',
             duration: '30 minutes',
             price: 1499
-          }"
-        >
+          }">
 
-          <span class="option-icon">◈</span>
+          <div class="option-top">
 
-          <span class="option-content">
-            <strong>Video Consultation</strong>
-            <small>One-to-one video reading</small>
-          </span>
+            <div class="option-icon video-icon">
+              ◈
+            </div>
 
-          <span class="option-price">
-            ₹1499
-          </span>
+            <span class="selection-check" [class.visible]="selectedConsultation.type === 'Video Consultation'">
+              ✓
+            </span>
+
+          </div>
+
+          <div class="option-content">
+
+            <h3>
+              Video Consultation
+            </h3>
+
+            <p>
+              A personal one-to-one video reading.
+            </p>
+
+          </div>
+
+          <div class="option-footer">
+
+            <span>
+              30 minutes
+            </span>
+
+            <strong>
+              ₹1499
+            </strong>
+
+          </div>
 
         </button>
 
@@ -144,16 +290,32 @@
     </section>
 
 
-    <!-- DATE -->
+    <!-- =====================================================
+         STEP 02 — DATE
+    ====================================================== -->
+
     <section class="booking-section">
 
-      <div class="section-title">
-        <span>02</span>
+      <div class="section-heading">
+
+        <div class="step-number">
+          02
+        </div>
 
         <div>
-          <h2>Choose a date</h2>
-          <p>Pick a convenient day for your reading.</p>
+          <span class="section-eyebrow">
+            FIND YOUR MOMENT
+          </span>
+
+          <h2>
+            Choose a date
+          </h2>
+
+          <p>
+            Pick a convenient day for your reading.
+          </p>
         </div>
+
       </div>
 
 
@@ -161,13 +323,23 @@
 
         @for (date of dates; track date) {
 
-          <button
-            class="date-option"
-            [class.selected]="selectedDate === date"
-            (click)="selectDate(date)"
-          >
+        <button class="date-option" [class.selected]="selectedDate === date" (click)="selectDate(date)">
+
+          <span class="date-symbol">
+            ◷
+          </span>
+
+          <strong>
             {{ date }}
-          </button>
+          </strong>
+
+          @if (selectedDate === date) {
+          <span class="date-check">
+            ✓
+          </span>
+          }
+
+        </button>
 
         }
 
@@ -176,16 +348,32 @@
     </section>
 
 
-    <!-- TIME -->
+    <!-- =====================================================
+         STEP 03 — TIME
+    ====================================================== -->
+
     <section class="booking-section">
 
-      <div class="section-title">
-        <span>03</span>
+      <div class="section-heading">
+
+        <div class="step-number">
+          03
+        </div>
 
         <div>
-          <h2>Choose a time</h2>
-          <p>Available consultation slots.</p>
+          <span class="section-eyebrow">
+            YOUR TIME
+          </span>
+
+          <h2>
+            Choose a time
+          </h2>
+
+          <p>
+            Available consultation slots for your reading.
+          </p>
         </div>
+
       </div>
 
 
@@ -193,13 +381,23 @@
 
         @for (time of availableTimes; track time) {
 
-          <button
-            class="time-option"
-            [class.selected]="selectedTime === time"
-            (click)="selectTime(time)"
-          >
+        <button class="time-option" [class.selected]="selectedTime === time" (click)="selectTime(time)">
+
+          <span class="time-icon">
+            ◷
+          </span>
+
+          <span>
             {{ time }}
-          </button>
+          </span>
+
+          @if (selectedTime === time) {
+          <span class="time-check">
+            ✓
+          </span>
+          }
+
+        </button>
 
         }
 
@@ -208,34 +406,67 @@
     </section>
 
 
-    <!-- QUESTION -->
-    <section class="booking-section">
+    <!-- =====================================================
+         STEP 04 — QUESTION
+    ====================================================== -->
 
-      <div class="section-title">
-        <span>04</span>
+    <section class="booking-section question-section">
+
+      <div class="section-heading">
+
+        <div class="step-number">
+          04
+        </div>
 
         <div>
-          <h2>Your question</h2>
+          <span class="section-eyebrow">
+            WHAT'S ON YOUR MIND?
+          </span>
+
+          <h2>
+            Your question
+          </h2>
+
           <p>
             Share a little about what you'd like guidance on.
           </p>
         </div>
+
       </div>
 
 
-      <textarea
-        [(ngModel)]="question"
-        placeholder="What would you like to ask the cards?"
-        rows="6"
-      ></textarea>
+      <div class="question-box">
+
+        <div class="textarea-decoration">
+          ✦
+        </div>
+
+        <textarea [(ngModel)]="question" placeholder="What would you like to ask the cards?" rows="6"></textarea>
+
+        <div class="textarea-footer">
+          <span>
+            Your question helps make the reading more personal.
+          </span>
+
+          <span>
+            ✦ Private
+          </span>
+        </div>
+
+      </div>
 
     </section>
 
 
-    <!-- BOOKING SUMMARY -->
+    <!-- =====================================================
+         SUMMARY
+    ====================================================== -->
+
     <section class="booking-summary">
 
-      <div>
+      <div class="summary-glow"></div>
+
+      <div class="summary-main">
 
         <span class="summary-label">
           YOUR SESSION
@@ -245,13 +476,25 @@
           {{ selectedConsultation.type }}
         </h2>
 
-        <p>
-          {{ selectedConsultation.duration }}
+        <div class="summary-details">
+
+          <span>
+            ◷ {{ selectedConsultation.duration }}
+          </span>
+
           <span>•</span>
-          {{ selectedDate || 'Date not selected' }}
+
+          <span>
+            {{ selectedDate || 'Date not selected' }}
+          </span>
+
           <span>•</span>
-          {{ selectedTime || 'Time not selected' }}
-        </p>
+
+          <span>
+            {{ selectedTime || 'Time not selected' }}
+          </span>
+
+        </div>
 
       </div>
 
@@ -271,31 +514,50 @@
     </section>
 
 
-    <!-- PAYMENT BUTTON -->
+    <!-- =====================================================
+         CONTINUE
+    ====================================================== -->
+
     <div class="continue-section">
 
-      <button
-        class="continue-button"
-        (click)="continueToPayment()"
-      >
-        Continue to Payment →
+      <button class="continue-button" (click)="continueToPayment()">
+
+        <span>
+          Continue to Payment
+        </span>
+
+        <span class="button-arrow">
+          →
+        </span>
+
       </button>
 
-      <p>
+      <div class="secure-note">
+        <span>✓</span>
         You'll review your booking before payment.
-      </p>
+      </div>
 
     </div>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
   <footer>
 
-    <div class="brand">
-      <span class="brand-mark">✦</span>
-      <span class="brand-name">THIS PERSON</span>
+    <div class="footer-brand">
+
+      <span class="brand-mark">
+        ✦
+      </span>
+
+      <span class="brand-name">
+        THIS PERSON
+      </span>
+
     </div>
 
     <p>

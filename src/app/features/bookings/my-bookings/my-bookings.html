@@ -1,50 +1,51 @@
 <div class="my-bookings-page">
 
-  <!-- NAVBAR -->
-  <header class="navbar">
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
 
-    <a routerLink="/" class="brand">
-      <span class="brand-mark">✦</span>
-      <span class="brand-name">THIS PERSON</span>
-    </a>
-
-    <a routerLink="/readers" class="back-button">
-      Find a Reader →
-    </a>
-
-  </header>
-
-
-  <!-- MAIN CONTENT -->
   <main class="bookings-container">
 
-    <div class="bookings-heading">
+    <!-- PAGE INTRO -->
+    <section class="bookings-hero">
+
+      <div class="hero-decoration decoration-one">✦</div>
+      <div class="hero-decoration decoration-two">✧</div>
+      <div class="hero-decoration decoration-three">✦</div>
 
       <div class="eyebrow">
-        YOUR JOURNEY
+        ✦ YOUR CONSULTATIONS ✦
       </div>
 
       <h1>
-        My bookings.
+        My <span>bookings.</span>
       </h1>
 
       <p>
-        View your upcoming and previous tarot consultations.
+        Your readings, your questions, and your moments of guidance —
+        all in one place.
       </p>
 
-    </div>
+      <div class="hero-line"></div>
+
+    </section>
 
 
-    <!-- UPCOMING BOOKINGS -->
+    <!-- =========================
+         UPCOMING CONSULTATIONS
+    ========================== -->
+
     <section class="bookings-section">
 
       <div class="section-heading">
 
-        <span>01</span>
+        <div class="section-number">
+          01
+        </div>
 
         <div>
           <h2>Upcoming consultations</h2>
-          <p>Your scheduled readings.</p>
+          <p>Your scheduled tarot readings.</p>
         </div>
 
       </div>
@@ -52,179 +53,239 @@
 
       @if (bookings.length === 0) {
 
-        <div class="empty-state">
+      <!-- EMPTY STATE -->
 
+      <div class="empty-state">
+
+        <div class="empty-orbit">
           <div class="empty-icon">
             ✦
           </div>
-
-          <h3>No bookings yet</h3>
-
-          <p>
-            Your next reading could be the beginning of
-            something meaningful.
-          </p>
-
-          <a routerLink="/readers" class="primary-button">
-            Find a Reader →
-          </a>
-
         </div>
+
+        <span class="empty-label">
+          YOUR NEXT READING
+        </span>
+
+        <h3>
+          Nothing booked yet
+        </h3>
+
+        <p>
+          Your next reading could be the beginning of
+          something meaningful.
+        </p>
+
+        <a routerLink="/readers" class="primary-button">
+          Find a Reader
+          <span>→</span>
+        </a>
+
+      </div>
 
       } @else {
 
-        <div class="booking-list">
+      <!-- BOOKING LIST -->
 
-          @for (booking of bookings; track booking.id) {
+      <div class="booking-list">
 
-            <article class="booking-card">
+        @for (booking of bookings; track booking.id) {
 
-              <div class="booking-top">
+        <article class="booking-card">
 
-                <div class="reader-info">
+          <!-- CARD TOP -->
 
-                  <div class="avatar">
-                    TM
-                  </div>
+          <div class="booking-top">
 
-                  <div>
+            <div class="reader-info">
 
-                    <span class="label">
-                      YOUR READER
-                    </span>
+              <div class="avatar">
+                TM
+              </div>
 
-                    <h3>
-                      {{ booking.readerName }}
-                    </h3>
+              <div class="reader-copy">
 
-                    <p>
-                      ★ 4.9 · Verified Tarot Reader
-                    </p>
-
-                  </div>
-
-                </div>
-
-
-                <span class="status-badge">
-                  ✓ {{ booking.status }}
+                <span class="label">
+                  YOUR READER
                 </span>
 
-              </div>
+                <h3>
+                  {{ booking.readerName }}
+                </h3>
 
-
-              <div class="booking-details">
-
-                <div class="booking-detail">
-
-                  <span class="detail-icon">
-                    ✦
-                  </span>
-
-                  <div>
-                    <span>Consultation</span>
-                    <strong>
-                      {{ booking.consultationType }}
-                    </strong>
-                  </div>
-
-                </div>
-
-
-                <div class="booking-detail">
-
-                  <span class="detail-icon">
-                    ◫
-                  </span>
-
-                  <div>
-                    <span>Date</span>
-                    <strong>
-                      {{ booking.date }}
-                    </strong>
-                  </div>
-
-                </div>
-
-
-                <div class="booking-detail">
-
-                  <span class="detail-icon">
-                    ◷
-                  </span>
-
-                  <div>
-                    <span>Time</span>
-                    <strong>
-                      {{ booking.time }}
-                    </strong>
-                  </div>
-
-                </div>
-
-
-                <div class="booking-detail">
-
-                  <span class="detail-icon">
-                    ₹
-                  </span>
-
-                  <div>
-                    <span>Amount</span>
-                    <strong>
-                      ₹{{ booking.price }}
-                    </strong>
-                  </div>
-
-                </div>
+                <p>
+                  <span class="star">★</span>
+                  4.9
+                  <span class="dot">•</span>
+                  Verified Tarot Reader
+                </p>
 
               </div>
 
-
-              <div class="booking-footer">
-
-                <div>
-
-                  <span class="booking-id-label">
-                    BOOKING ID
-                  </span>
-
-                  <strong>
-                    {{ booking.id }}
-                  </strong>
-
-                </div>
+            </div>
 
 
-                <a
-                  [routerLink]="['/booking-confirmation']"
-                  [queryParams]="{
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              {{ booking.status }}
+            </div>
+
+          </div>
+
+
+          <!-- CONSULTATION HIGHLIGHT -->
+
+          <div class="consultation-banner">
+
+            <div class="banner-symbol">
+              ✦
+            </div>
+
+            <div>
+              <span>YOUR READING</span>
+
+              <strong>
+                {{ booking.consultationType }}
+              </strong>
+            </div>
+
+            <div class="banner-duration">
+              {{ booking.duration }}
+            </div>
+
+          </div>
+
+
+          <!-- BOOKING DETAILS -->
+
+          <div class="booking-details">
+
+            <div class="booking-detail">
+
+              <div class="detail-icon">
+                ◫
+              </div>
+
+              <div>
+                <span>DATE</span>
+                <strong>
+                  {{ booking.date }}
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="booking-detail">
+
+              <div class="detail-icon">
+                ◷
+              </div>
+
+              <div>
+                <span>TIME</span>
+                <strong>
+                  {{ booking.time }}
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="booking-detail">
+
+              <div class="detail-icon">
+                ₹
+              </div>
+
+              <div>
+                <span>AMOUNT</span>
+                <strong>
+                  ₹{{ booking.price }}
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- CARD FOOTER -->
+
+          <div class="booking-footer">
+
+            <div class="booking-reference">
+
+              <span>
+                BOOKING ID
+              </span>
+
+              <strong>
+                {{ booking.id }}
+              </strong>
+
+            </div>
+
+
+            <a [routerLink]="['/booking-confirmation']" [queryParams]="{
                     bookingId: booking.id
-                  }"
-                  class="view-button"
-                >
-                  View Booking →
-                </a>
+                  }" class="view-button">
+              View Booking
+              <span>→</span>
+            </a>
 
-              </div>
+          </div>
 
-            </article>
+        </article>
 
-          }
+        }
 
-        </div>
+      </div>
 
       }
+
+    </section>
+
+
+    <!-- FIND ANOTHER READER -->
+
+    <section class="explore-section">
+
+      <div class="explore-content">
+
+        <span class="explore-symbol">
+          ✦
+        </span>
+
+        <div>
+          <h3>
+            Looking for more guidance?
+          </h3>
+
+          <p>
+            Explore our readers and find the right one for your next question.
+          </p>
+        </div>
+
+      </div>
+
+      <a routerLink="/readers" class="explore-button">
+        Explore Readers
+        <span>→</span>
+      </a>
 
     </section>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer>
 
-    <div class="brand">
+    <div class="footer-brand">
 
       <span class="brand-mark">
         ✦

@@ -16,6 +16,13 @@ export const routes: Routes = [
   },
 
   {
+    path: 'free-services/tarot',
+    loadComponent: () =>
+      import('./features/free-services/tarot/tarot')
+        .then(m => m.Tarot)
+  },
+
+  {
     path: 'readers/tarot-mystic-1111',
     loadComponent: () =>
       import('./features/readers/reader-profile/reader-profile')
