@@ -1,0 +1,897 @@
+:host {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.pick-page {
+  min-height: 100vh;
+  background: #fffaf3;
+  color: #171717;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.pick-hero {
+  position: relative;
+
+  min-height: 480px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 25px 80px;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 153, 51, 0.13),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 153, 51, 0.12),
+      transparent 25%
+    ),
+    #fffaf3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 800px;
+}
+
+.eyebrow {
+  display: inline-flex;
+
+  padding: 9px 15px;
+
+  border: 1px solid #efd6b4;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.75);
+
+  color: #d97816;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.pick-hero h1 {
+  margin: 25px 0 20px;
+
+  font-size: clamp(48px, 7vw, 78px);
+
+  line-height: 1;
+
+  letter-spacing: -4px;
+}
+
+.pick-hero h1 span {
+  display: block;
+
+  color: #e98219;
+}
+
+.pick-hero p {
+  max-width: 620px;
+
+  margin: auto;
+
+  color: #716960;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+
+/* Decorative stars */
+
+.hero-decoration {
+  position: absolute;
+
+  color: #e98219;
+
+  opacity: 0.45;
+
+  animation: floatStar 4s ease-in-out infinite;
+}
+
+.decoration-one {
+  top: 23%;
+  left: 15%;
+  font-size: 30px;
+}
+
+.decoration-two {
+  top: 30%;
+  right: 17%;
+  font-size: 20px;
+  animation-delay: 1s;
+}
+
+.decoration-three {
+  bottom: 18%;
+  left: 24%;
+  font-size: 25px;
+  animation-delay: 1.8s;
+}
+
+
+/* =========================================================
+   PICK SECTION
+   ========================================================= */
+
+.pick-section {
+  padding: 90px 25px 120px;
+
+  background: white;
+}
+
+.pick-container {
+  max-width: 1100px;
+
+  margin: auto;
+}
+
+.pick-intro {
+  max-width: 650px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.section-label {
+  color: #d97816;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.pick-intro h2 {
+  margin: 14px 0;
+
+  font-size: clamp(35px, 5vw, 52px);
+
+  letter-spacing: -2px;
+}
+
+.pick-intro p {
+  margin: 0;
+
+  color: #756d65;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CARD CHOICES
+   ========================================================= */
+
+.card-choice-area {
+  min-height: 400px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+
+  margin-bottom: 45px;
+}
+
+.choice-card {
+  width: 190px;
+  height: 330px;
+
+  position: relative;
+
+  border: 7px solid white;
+
+  border-radius: 17px;
+
+  background: #29241f;
+
+  box-shadow:
+    0 25px 45px rgba(60, 40, 20, 0.18);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.choice-card:hover {
+  z-index: 10;
+
+  box-shadow:
+    0 35px 60px rgba(60, 40, 20, 0.25);
+}
+
+.choice-one {
+  transform: rotate(-13deg) translateX(55px);
+}
+
+.choice-two {
+  z-index: 2;
+
+  transform: translateY(-12px);
+}
+
+.choice-three {
+  transform: rotate(13deg) translateX(-55px);
+}
+
+.choice-one:hover {
+  transform:
+    rotate(-13deg)
+    translateX(55px)
+    translateY(-15px);
+}
+
+.choice-two:hover {
+  transform:
+    translateY(-27px);
+}
+
+.choice-three:hover {
+  transform:
+    rotate(13deg)
+    translateX(-55px)
+    translateY(-15px);
+}
+
+.card-back-design {
+  width: 100%;
+  height: 100%;
+
+  border: 1px solid #e2a85c;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 35px 15px;
+
+  border-radius: 10px;
+
+  color: #ffb963;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 170, 80, 0.14) 2px,
+      transparent 3px
+    ),
+    #29241f;
+
+  background-size: 18px 18px;
+}
+
+.card-back-design span {
+  font-size: 28px;
+}
+
+.card-back-design strong {
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  writing-mode: vertical-rl;
+
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.pick-button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  min-width: 210px;
+
+  min-height: 56px;
+
+  margin: auto;
+
+  padding: 0 25px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #ff9933;
+
+  color: white;
+
+  cursor: pointer;
+
+  font: inherit;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 14px 30px rgba(229, 126, 20, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.pick-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 20px 38px rgba(229, 126, 20, 0.32);
+}
+
+.pick-button span {
+  font-size: 20px;
+}
+
+.privacy-note {
+  margin-top: 20px;
+
+  text-align: center;
+
+  color: #aaa096;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.reading-result {
+  scroll-margin-top: 100px;
+
+  animation: resultIn 0.7s ease both;
+}
+
+.result-heading {
+  max-width: 700px;
+
+  margin: 0 auto 60px;
+
+  text-align: center;
+}
+
+.result-heading h2 {
+  margin: 13px 0;
+
+  font-size: clamp(40px, 5vw, 60px);
+
+  letter-spacing: -2px;
+}
+
+.result-heading p {
+  color: #756d65;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   RESULT LAYOUT
+   ========================================================= */
+
+.result-card-layout {
+  display: grid;
+
+  grid-template-columns: 0.75fr 1.25fr;
+
+  gap: 80px;
+
+  align-items: center;
+
+  max-width: 900px;
+
+  margin: auto;
+}
+
+
+/* =========================================================
+   REVEALED CARD
+   ========================================================= */
+
+.revealed-card {
+  display: flex;
+
+  justify-content: center;
+}
+
+.card-frame {
+  width: 245px;
+
+  padding: 10px;
+
+  border-radius: 18px;
+
+  background: #28231e;
+
+  color: #f5c37e;
+
+  box-shadow:
+    0 30px 55px rgba(52, 35, 17, 0.2);
+}
+
+.card-number {
+  display: block;
+
+  padding: 8px;
+
+  text-align: center;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.tarot-image {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 2 / 3;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+.card-name {
+  display: block;
+
+  padding: 13px 5px 8px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   INTERPRETATION
+   ========================================================= */
+
+.interpretation-label {
+  color: #d97816;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.interpretation h3 {
+  margin: 12px 0 20px;
+
+  font-size: 30px;
+
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+}
+
+.message {
+  color: #696159;
+
+  font-size: 16px;
+
+  line-height: 1.9;
+}
+
+.keywords {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  margin: 25px 0;
+}
+
+.keywords span {
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  background: #fff1df;
+
+  color: #c86d13;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+/* Reflection */
+
+.reflection-box {
+  display: flex;
+
+  gap: 14px;
+
+  padding: 18px;
+
+  margin-top: 25px;
+
+  border: 1px solid #efdfcb;
+
+  border-radius: 15px;
+
+  background: #fffaf3;
+}
+
+.reflection-box > span {
+  color: #e98219;
+
+  font-size: 20px;
+}
+
+.reflection-box strong {
+  font-size: 13px;
+}
+
+.reflection-box p {
+  margin: 5px 0 0;
+
+  color: #837a71;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* Again */
+
+.again-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 25px;
+
+  padding: 14px 20px;
+
+  border: 1px solid #e8d8c5;
+
+  border-radius: 12px;
+
+  background: white;
+
+  color: #29241f;
+
+  cursor: pointer;
+
+  font: inherit;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.again-button:hover {
+  transform: translateY(-2px);
+
+  border-color: #e98219;
+}
+
+.again-button span {
+  color: #e98219;
+
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   NOTE
+   ========================================================= */
+
+.reading-note {
+  padding: 35px 25px;
+
+  background: #fff6e9;
+}
+
+.note-inner {
+  max-width: 850px;
+
+  margin: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.note-inner > span {
+  color: #df7b18;
+
+  font-size: 20px;
+}
+
+.note-inner p {
+  margin: 0;
+
+  color: #83786e;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.pick-footer {
+  padding: 55px max(6vw, 25px) 25px;
+
+  background: #171513;
+
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  padding-bottom: 40px;
+}
+
+.footer-brand {
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.footer-content p {
+  margin: 8px 0;
+
+  color: #89827b;
+
+  font-size: 12px;
+}
+
+.footer-links {
+  display: flex;
+
+  gap: 25px;
+}
+
+.footer-links a {
+  color: #aaa39c;
+
+  text-decoration: none;
+
+  font-size: 12px;
+}
+
+.footer-links a:hover {
+  color: #ff9933;
+}
+
+.footer-bottom {
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+
+  color: #6f6963;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes floatStar {
+
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(10deg);
+  }
+
+}
+
+@keyframes resultIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .result-card-layout {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .interpretation {
+    max-width: 600px;
+
+    margin: auto;
+
+    text-align: center;
+  }
+
+  .keywords {
+    justify-content: center;
+  }
+
+  .reflection-box {
+    text-align: left;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .pick-hero {
+    min-height: 420px;
+
+    padding-top: 80px;
+  }
+
+  .pick-hero h1 {
+    font-size: 47px;
+
+    letter-spacing: -3px;
+  }
+
+  .pick-hero p {
+    font-size: 14px;
+  }
+
+  .pick-section {
+    padding: 70px 20px 90px;
+  }
+
+  .card-choice-area {
+    min-height: 350px;
+  }
+
+  .choice-card {
+    width: 135px;
+    height: 235px;
+  }
+
+  .choice-one {
+    transform: rotate(-12deg) translateX(38px);
+  }
+
+  .choice-three {
+    transform: rotate(12deg) translateX(-38px);
+  }
+
+  .choice-one:hover {
+    transform:
+      rotate(-12deg)
+      translateX(38px)
+      translateY(-10px);
+  }
+
+  .choice-three:hover {
+    transform:
+      rotate(12deg)
+      translateX(-38px)
+      translateY(-10px);
+  }
+
+  .card-back-design {
+    padding: 25px 10px;
+  }
+
+  .card-back-design strong {
+    font-size: 7px;
+  }
+
+  .result-card-layout {
+    gap: 35px;
+  }
+
+  .card-frame {
+    width: 220px;
+  }
+
+  .interpretation h3 {
+    font-size: 26px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    flex-direction: column;
+
+    gap: 13px;
+  }
+
+}

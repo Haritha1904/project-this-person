@@ -23,6 +23,13 @@ export const routes: Routes = [
   },
 
   {
+    path: 'free-services/pick-a-card',
+    loadComponent: () =>
+      import('./features/free-services/pick-a-card/pick-a-card')
+        .then(m => m.PickACard)
+  },
+
+  {
     path: 'readers/tarot-mystic-1111',
     loadComponent: () =>
       import('./features/readers/reader-profile/reader-profile')

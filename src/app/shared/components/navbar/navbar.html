@@ -1,43 +1,333 @@
 <header class="navbar">
+
   <div class="navbar-container">
+
+    <!-- BRAND -->
     <a routerLink="/" class="brand">
       <span class="brand-text">THIS PERSON</span>
     </a>
 
-    <!-- Desktop Navigation -->
+
+    <!-- DESKTOP NAVIGATION -->
     <nav class="nav-links desktop-only">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      <a routerLink="/readers" routerLinkActive="active">Find a Reader</a>
-      <!-- <a routerLink="/#how-it-works">How It Works</a> -->
-      <a href="/#how-it-works">How It Works</a>
-      <a routerLink="/my-bookings" routerLinkActive="active">My Bookings</a>
+
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </a>
+
+      <a
+        routerLink="/readers"
+        routerLinkActive="active">
+        Find a Reader
+      </a>
+
+
+      <!-- =================================================
+           FREE SERVICES
+           ================================================= -->
+
+      <div class="nav-dropdown">
+
+        <button
+          type="button"
+          class="nav-dropdown-trigger">
+
+          <span>Free Services</span>
+
+          <span class="dropdown-arrow">
+            ⌄
+          </span>
+
+        </button>
+
+
+        <!-- DROPDOWN -->
+        <div class="nav-dropdown-menu">
+
+
+          <!-- DROPDOWN HEADER -->
+
+          <div class="dropdown-heading">
+
+            <span class="dropdown-title">
+              FREE SERVICES
+            </span>
+
+            <span class="dropdown-subtitle">
+              Explore your inner guidance
+            </span>
+
+          </div>
+
+
+          <!-- =================================================
+               1. TAROT
+               ================================================= -->
+
+          <a
+            routerLink="/free-services/tarot"
+            class="dropdown-item">
+
+            <span class="dropdown-icon">
+              🔮
+            </span>
+
+            <span class="dropdown-content">
+
+              <strong>
+                Tarot
+              </strong>
+
+              <small>
+                Explore Tarot, cards &amp; readings
+              </small>
+
+            </span>
+
+            <span class="dropdown-arrow-right">
+              →
+            </span>
+
+          </a>
+
+
+          <!-- =================================================
+               2. CHECK YOUR READING
+               ================================================= -->
+
+          <a
+            routerLink="/free-services/pick-a-card"
+            class="dropdown-item">
+
+            <span class="dropdown-icon">
+              ✦
+            </span>
+
+            <span class="dropdown-content">
+
+              <strong>
+                Check Your Reading for Free
+              </strong>
+
+              <small>
+                Pick your card &amp; reveal your message
+              </small>
+
+            </span>
+
+            <span class="dropdown-arrow-right">
+              →
+            </span>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- HOW IT WORKS -->
+
+      <a href="/#how-it-works">
+        How It Works
+      </a>
+
+
+      <!-- MY BOOKINGS -->
+
+      <a
+        routerLink="/my-bookings"
+        routerLinkActive="active">
+        My Bookings
+      </a>
+
     </nav>
+
+
+    <!-- =====================================================
+         DESKTOP ACTIONS
+         ===================================================== -->
 
     <div class="nav-actions desktop-only">
-      <a routerLink="/login" class="login-link">Login</a>
-      <a routerLink="/readers" class="btn-primary">Find a Reader</a>
+
+      <a
+        routerLink="/login"
+        class="login-link">
+        Login
+      </a>
+
+      <a
+        routerLink="/readers"
+        class="btn-primary">
+        Find a Reader
+      </a>
+
     </div>
 
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" (click)="toggleMenu()">
+
+    <!-- =====================================================
+         MOBILE MENU BUTTON
+         ===================================================== -->
+
+    <button
+      type="button"
+      class="mobile-menu-btn"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu">
+
       <span class="hamburger"></span>
+
     </button>
+
   </div>
 
-  <!-- Mobile Navigation Dropdown -->
+
+  <!-- =======================================================
+       MOBILE MENU
+       ======================================================= -->
+
   @if (isMenuOpen) {
-  <div class="mobile-menu">
-    <nav class="mobile-nav-links">
-      <a routerLink="/" (click)="toggleMenu()">Home</a>
-      <a routerLink="/readers" (click)="toggleMenu()">Find a Reader</a>
-      <!-- <a routerLink="/#how-it-works" (click)="toggleMenu()">How It Works</a> -->
-      <a href="/#how-it-works" (click)="toggleMenu()">How It Works</a>
-      <a routerLink="/my-bookings" (click)="toggleMenu()">My Bookings</a>
-    </nav>
-    <div class="mobile-nav-actions">
-      <a routerLink="/login" class="login-link" (click)="toggleMenu()">Login</a>
-      <a routerLink="/readers" class="btn-primary" (click)="toggleMenu()">Find a Reader</a>
+
+    <div class="mobile-menu">
+
+      <nav class="mobile-nav-links">
+
+
+        <!-- HOME -->
+
+        <a
+          routerLink="/"
+          (click)="toggleMenu()">
+
+          Home
+
+        </a>
+
+
+        <!-- FIND A READER -->
+
+        <a
+          routerLink="/readers"
+          (click)="toggleMenu()">
+
+          Find a Reader
+
+        </a>
+
+
+        <!-- =================================================
+             MOBILE FREE SERVICES
+             ================================================= -->
+
+        <div class="mobile-services">
+
+
+          <div class="mobile-services-title">
+
+            <span>
+              Free Services
+            </span>
+
+            <span>
+              ✦
+            </span>
+
+          </div>
+
+
+          <!-- TAROT -->
+
+          <a
+            routerLink="/free-services/tarot"
+            (click)="toggleMenu()">
+
+            <span>
+              🔮
+            </span>
+
+            <span>
+              Tarot
+            </span>
+
+          </a>
+
+
+          <!-- PICK A CARD -->
+
+          <a
+            routerLink="/free-services/pick-a-card"
+            (click)="toggleMenu()">
+
+            <span>
+              ✦
+            </span>
+
+            <span>
+              Check Your Reading for Free
+            </span>
+
+          </a>
+
+
+        </div>
+
+
+        <!-- HOW IT WORKS -->
+
+        <a
+          href="/#how-it-works"
+          (click)="toggleMenu()">
+
+          How It Works
+
+        </a>
+
+
+        <!-- MY BOOKINGS -->
+
+        <a
+          routerLink="/my-bookings"
+          (click)="toggleMenu()">
+
+          My Bookings
+
+        </a>
+
+      </nav>
+
+
+      <!-- =====================================================
+           MOBILE ACTIONS
+           ===================================================== -->
+
+      <div class="mobile-nav-actions">
+
+        <a
+          routerLink="/login"
+          class="login-link"
+          (click)="toggleMenu()">
+
+          Login
+
+        </a>
+
+        <a
+          routerLink="/readers"
+          class="btn-primary"
+          (click)="toggleMenu()">
+
+          Find a Reader
+
+        </a>
+
+      </div>
+
     </div>
-  </div>
+
   }
+
 </header>
