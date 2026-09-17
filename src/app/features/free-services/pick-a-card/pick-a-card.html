@@ -1,1 +1,778 @@
-<p>pick-a-card works!</p>
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="pick-hero">
+
+  <div class="hero-orb hero-orb-one"></div>
+  <div class="hero-orb hero-orb-two"></div>
+
+  <div class="pick-hero-inner">
+
+    <div class="hero-kicker">
+      <span></span>
+      FREE TAROT EXPERIENCE
+      <span></span>
+    </div>
+
+    <h1>
+      Pick a card.
+      <br>
+      <em>Receive your message.</em>
+    </h1>
+
+    <p>
+      Take a quiet moment, hold your question in your mind,
+      and trust your first instinct. Choose one card from
+      the deck below to reveal your reading.
+    </p>
+
+    <div class="hero-badges">
+
+      <span>
+        ✦ 78 CARDS
+      </span>
+
+      <span>
+        ✦ COMPLETELY FREE
+      </span>
+
+      <span>
+        ✦ INSTANT READING
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PICK AREA
+========================================================= -->
+
+<section
+  class="pick-section"
+  id="pick-area">
+
+  <div class="pick-container">
+
+    <!-- INTRO -->
+
+    <div class="pick-intro">
+
+      <span class="section-kicker">
+        YOUR MOMENT
+      </span>
+
+      <h2>
+        Which card is
+        <em>calling you?</em>
+      </h2>
+
+      <p>
+        There is no right or wrong choice. Take a breath,
+        think about your question and choose the card
+        that catches your attention.
+      </p>
+
+    </div>
+
+
+    <!-- QUESTION CARD -->
+
+    <div class="intention-card">
+
+      <div class="intention-symbol">
+        ☾
+      </div>
+
+      <div>
+
+        <strong>
+          Before you choose
+        </strong>
+
+        <span>
+          Think of one question or situation you would
+          like to explore.
+        </span>
+
+      </div>
+
+      <div class="intention-stars">
+        ✦ ✧ ✦
+      </div>
+
+    </div>
+
+
+    <!-- DECK -->
+
+    <div class="deck-area">
+
+      <div class="deck-heading">
+
+        <span>
+          THE DECK
+        </span>
+
+        @if (!hasPicked) {
+
+          <small>
+            Choose one card
+          </small>
+
+        } @else {
+
+          <small>
+            Your card has been revealed
+          </small>
+
+        }
+
+      </div>
+
+
+      <div
+        class="tarot-deck"
+        [class.deck-picked]="hasPicked">
+
+
+        @for (
+          cardIndex of getDeckCards();
+          track cardIndex
+        ) {
+
+          <button
+            type="button"
+            class="deck-card"
+            [class.selected]="selectedIndex === cardIndex"
+            [class.revealing]="
+              selectedIndex === cardIndex && isRevealing
+            "
+            [disabled]="hasPicked || isPicking"
+            [style.transform]="
+              'rotate(' + getCardRotation(cardIndex) +
+              ') translateY(' + getCardOffset(cardIndex) + ')'
+            "
+            (click)="pickCard(cardIndex)"
+            aria-label="Choose this Tarot card">
+
+            <div class="deck-card-inner">
+
+              <!-- CARD BACK -->
+
+              <div class="deck-card-back">
+
+                <div class="back-border">
+
+                  <div class="back-corner top-left">
+                    ✦
+                  </div>
+
+                  <div class="back-corner top-right">
+                    ✦
+                  </div>
+
+                  <div class="back-corner bottom-left">
+                    ✦
+                  </div>
+
+                  <div class="back-corner bottom-right">
+                    ✦
+                  </div>
+
+                  <div class="back-center">
+
+                    <div class="back-circle outer"></div>
+                    <div class="back-circle middle"></div>
+
+                    <div class="back-star">
+                      ✦
+                    </div>
+
+                    <div class="back-moon">
+                      ☾
+                    </div>
+
+                  </div>
+
+                  <div class="back-brand">
+                    THIS PERSON
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- CARD REVEAL -->
+
+              <div class="deck-card-front">
+
+                @if (selectedCard) {
+
+                  <div class="revealed-mini-card">
+
+                    <span class="mini-number">
+                      {{ selectedCard.number }}
+                    </span>
+
+                    <div class="mini-art">
+                      {{ selectedCard.symbol }}
+                    </div>
+
+                    <strong>
+                      {{ selectedCard.name }}
+                    </strong>
+
+                  </div>
+
+                }
+
+              </div>
+
+            </div>
+
+          </button>
+
+        }
+
+      </div>
+
+
+      @if (!hasPicked) {
+
+        <div class="deck-hint">
+
+          <span class="hint-arrow">↑</span>
+
+          <span>
+            Trust your instinct and choose one
+          </span>
+
+        </div>
+
+      }
+
+    </div>
+
+
+    <!-- =====================================================
+         RESULT
+    ====================================================== -->
+
+    @if (hasPicked && selectedCard) {
+
+      <div
+        class="reading-result"
+        id="reading-result">
+
+
+        <div class="result-heading">
+
+          <span class="section-kicker">
+            YOUR CARD
+          </span>
+
+          <h2>
+            Your message from
+            <em>the cards.</em>
+          </h2>
+
+          <p>
+            Take a moment before reading the message.
+            Notice what you feel when you see your card.
+          </p>
+
+        </div>
+
+
+        <div class="result-card-layout">
+
+
+          <!-- LARGE CARD -->
+
+          <div class="revealed-card-wrap">
+
+            <div class="revealed-card-shadow"></div>
+
+            <div class="revealed-card">
+
+              <div class="revealed-card-border">
+
+                <div class="revealed-top">
+
+                  <span>
+                    {{ selectedCard.number }}
+                  </span>
+
+                  <span>
+                    ✦
+                  </span>
+
+                </div>
+
+
+                <div class="revealed-art">
+
+                  <div class="revealed-halo"></div>
+
+                  <div class="revealed-symbol">
+                    {{ selectedCard.symbol }}
+                  </div>
+
+                  <div class="revealed-spark spark-one">
+                    ✦
+                  </div>
+
+                  <div class="revealed-spark spark-two">
+                    ✧
+                  </div>
+
+                  <div class="revealed-spark spark-three">
+                    ✦
+                  </div>
+
+                </div>
+
+
+                <!-- <div class="revealed-name">
+                  {{ selectedCard.name }}
+                </div> -->
+
+                @if (!imageFailed) {
+                    <img
+                        class="real-card-image"
+                        [src]="getCardImage(selectedCard)"
+                        [alt]="selectedCard.name + ' Tarot card'"
+                        (error)="imageFailed = true"
+                    />
+                } @else {
+                    <div class="revealed-symbol">
+                        {{ selectedCard.symbol }}
+                    </div>
+                }
+
+                <div class="revealed-brand">
+                  THIS PERSON
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- READING -->
+
+          <div class="result-content">
+
+            <span class="result-label">
+              YOUR CARD IS
+            </span>
+
+            <h3>
+              {{ selectedCard.name }}
+            </h3>
+
+            <div class="result-divider">
+              <span></span>
+              ✦
+              <span></span>
+            </div>
+
+
+            <p class="result-message">
+              {{ selectedCard.message }}
+            </p>
+
+
+            <div class="keywords-section">
+
+              <span class="keywords-title">
+                KEY THEMES
+              </span>
+
+              <div class="keyword-list">
+
+                @for (
+                  keyword of selectedCard.keywords;
+                  track keyword
+                ) {
+
+                  <span>
+                    {{ keyword }}
+                  </span>
+
+                }
+
+              </div>
+
+            </div>
+
+
+            <!-- REFLECTION -->
+
+            <div class="reflection-box">
+
+              <div class="reflection-icon">
+                ✦
+              </div>
+
+              <div>
+
+                <strong>
+                  A question to reflect on
+                </strong>
+
+                <p>
+                  What part of this message feels most
+                  relevant to your situation right now?
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="another-card-btn"
+              (click)="pickAnother()">
+
+              <span>
+                ↻
+              </span>
+
+              Pick Another Card
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- RESULT NOTE -->
+
+        <div class="result-note">
+
+          <span>✦</span>
+
+          Tarot is a reflective experience.
+          Keep what resonates with you and use your
+          own judgement when making important decisions.
+
+          <span>✦</span>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section class="how-reading-section">
+
+  <div class="pick-container">
+
+    <div class="section-heading centered">
+
+      <span class="section-kicker">
+        A SIMPLE RITUAL
+      </span>
+
+      <h2>
+        Make your reading
+        <em>your own.</em>
+      </h2>
+
+      <p>
+        You don't need to know anything about Tarot
+        before beginning. Just bring your question
+        and an open mind.
+      </p>
+
+    </div>
+
+
+    <div class="how-reading-grid">
+
+
+      <article class="how-reading-card">
+
+        <div class="how-number">
+          01
+        </div>
+
+        <div class="how-icon">
+          ☾
+        </div>
+
+        <h3>
+          Pause
+        </h3>
+
+        <p>
+          Take a few seconds to step away from
+          distractions and focus on the present moment.
+        </p>
+
+      </article>
+
+
+      <article class="how-reading-card">
+
+        <div class="how-number">
+          02
+        </div>
+
+        <div class="how-icon">
+          ✦
+        </div>
+
+        <h3>
+          Ask
+        </h3>
+
+        <p>
+          Hold a question, feeling or situation in
+          your mind while you look at the deck.
+        </p>
+
+      </article>
+
+
+      <article class="how-reading-card">
+
+        <div class="how-number">
+          03
+        </div>
+
+        <div class="how-icon">
+          ◇
+        </div>
+
+        <h3>
+          Choose
+        </h3>
+
+        <p>
+          Follow your first instinct and select
+          the card that draws your attention.
+        </p>
+
+      </article>
+
+
+      <article class="how-reading-card">
+
+        <div class="how-number">
+          04
+        </div>
+
+        <div class="how-icon">
+          ✧
+        </div>
+
+        <h3>
+          Reflect
+        </h3>
+
+        <p>
+          Read your message and consider what
+          meaning it has for your situation today.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EXPLORE MORE
+========================================================= -->
+
+<section class="explore-section">
+
+  <div class="pick-container">
+
+    <div class="explore-card">
+
+      <div class="explore-decoration">
+        ✦
+      </div>
+
+      <div class="explore-content">
+
+        <span class="section-kicker">
+          WANT TO GO DEEPER?
+        </span>
+
+        <h2>
+          Explore Tarot
+          <em>your way.</em>
+        </h2>
+
+        <p>
+          Learn about the Major Arcana, Minor Arcana,
+          Tarot spreads and the different ways cards
+          can be used for reflection.
+        </p>
+
+        <a
+          routerLink="/free-services/tarot"
+          class="explore-btn">
+
+          Explore Tarot Guide
+
+          <span>→</span>
+
+        </a>
+
+      </div>
+
+
+      <div class="explore-symbols">
+
+        <span>☾</span>
+        <span>✦</span>
+        <span>◇</span>
+        <span>☀</span>
+        <span>✧</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="pick-final-cta">
+
+  <div class="final-circle circle-one"></div>
+  <div class="final-circle circle-two"></div>
+
+  <div class="final-content">
+
+    <span class="section-kicker">
+      YOUR NEXT STEP
+    </span>
+
+    <h2>
+      Looking for a
+      <em>personal reading?</em>
+    </h2>
+
+    <p>
+      If you would like to explore your question with
+      a real Tarot reader, discover the readers available
+      on This Person.
+    </p>
+
+    <a
+      routerLink="/readers"
+      class="final-btn">
+
+      Find a Reader
+
+      <span>→</span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="pick-footer">
+
+  <div class="footer-main">
+
+    <div class="footer-brand">
+
+      <a routerLink="/">
+        THIS PERSON
+      </a>
+
+      <p>
+        A space for reflection, connection
+        and meaningful guidance.
+      </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <a routerLink="/">
+        Home
+      </a>
+
+      <a routerLink="/free-services/tarot">
+        Tarot
+      </a>
+
+      <a routerLink="/readers">
+        Find a Reader
+      </a>
+
+      <a routerLink="/my-bookings">
+        My Bookings
+      </a>
+
+    </div>
+
+
+    <div class="footer-mark">
+      ✦
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 THIS PERSON
+    </span>
+
+    <span>
+      Tarot is intended for reflection and entertainment.
+    </span>
+
+  </div>
+
+</footer>
