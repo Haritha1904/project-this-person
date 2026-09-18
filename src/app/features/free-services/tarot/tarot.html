@@ -1,15 +1,15 @@
 <!-- =========================================================
      HERO
 ========================================================= -->
-
+<!-- 
 <section class="tarot-hero">
 
   <div class="hero-glow hero-glow-one"></div>
-  <div class="hero-glow hero-glow-two"></div>
+  <div class="hero-glow hero-glow-two"></div> -->
 
-  <div class="hero-inner">
+<!-- <div class="hero-inner"> -->
 
-    <div class="hero-copy">
+<!-- <div class="hero-copy">
 
       <div class="eyebrow">
         <span class="eyebrow-line"></span>
@@ -52,12 +52,12 @@
         No booking required · Completely free
       </div>
 
-    </div>
+    </div> -->
 
 
-    <!-- HERO TAROT VISUAL -->
+<!-- HERO TAROT VISUAL -->
 
-    <div class="hero-visual">
+<!-- <div class="hero-visual">
 
       <div class="orbit orbit-one"></div>
       <div class="orbit orbit-two"></div>
@@ -103,17 +103,17 @@
         <span>☾</span>
       </div>
 
-    </div>
+    </div> -->
 
-  </div>
+<!-- </div> -->
 
+<!-- 
+<div class="hero-scroll">
+  <span>SCROLL TO EXPLORE</span>
+  <div class="scroll-line"></div>
+</div>
 
-  <div class="hero-scroll">
-    <span>SCROLL TO EXPLORE</span>
-    <div class="scroll-line"></div>
-  </div>
-
-</section>
+</section> -->
 
 
 
@@ -121,26 +121,34 @@
      INTRO / WHAT IS TAROT
 ========================================================= -->
 
-<section
-  class="section intro-section"
-  id="what-is-tarot">
+<section class="section intro-section" id="what-is-tarot">
 
   <div class="section-container">
 
     <div class="section-heading centered">
 
-      <span class="section-kicker">
+      <!-- <span class="section-kicker">
         THE BASICS
-      </span>
+      </span> -->
 
       <h2>
-        What is <em>Tarot?</em>
+        What are <em> Tarot Cards ? </em>
       </h2>
 
       <p>
-        Tarot is a symbolic card system that can be used as a
-        reflective tool to explore questions, emotions, choices
-        and different possibilities.
+        Tarot cards are a set of cards used for reflection, guidance, and exploring different situations in life.
+
+        A Tarot deck normally has 78 cards. Each card has pictures and symbols that represent different experiences,
+        emotions, situations, or life lessons.
+
+        A Tarot reading usually involves:
+
+        Choosing or drawing cards.
+        Looking at the meaning of those cards.
+        Connecting the meanings to the person's question or situation.
+
+        Tarot is generally used as a tool for guidance and self-reflection, rather than something that can guarantee
+        what will happen in the future.
       </p>
 
     </div>
@@ -265,32 +273,30 @@
 
       @for (reading of freeReadings; track reading.title; let i = $index) {
 
-        <a
-          [routerLink]="reading.route"
-          class="reading-card">
+      <a [routerLink]="reading.route" class="reading-card">
 
-          <div class="reading-number">
-            0{{ i + 1 }}
-          </div>
+        <div class="reading-number">
+          0{{ i + 1 }}
+        </div>
 
-          <div class="reading-icon">
-            {{ reading.icon }}
-          </div>
+        <div class="reading-icon">
+          {{ reading.icon }}
+        </div>
 
-          <h3>
-            {{ reading.title }}
-          </h3>
+        <h3>
+          {{ reading.title }}
+        </h3>
 
-          <p>
-            {{ reading.description }}
-          </p>
+        <p>
+          {{ reading.description }}
+        </p>
 
-          <span class="reading-link">
-            Explore reading
-            <span>→</span>
-          </span>
+        <span class="reading-link">
+          Explore reading
+          <span>→</span>
+        </span>
 
-        </a>
+      </a>
 
       }
 
@@ -342,25 +348,25 @@
 
         @for (step of tarotSteps; track step.number) {
 
-          <div class="step-item">
+        <div class="step-item">
 
-            <div class="step-number">
-              {{ step.number }}
-            </div>
+          <div class="step-number">
+            {{ step.number }}
+          </div>
 
-            <div class="step-content">
+          <div class="step-content">
 
-              <h3>
-                {{ step.title }}
-              </h3>
+            <h3>
+              {{ step.title }}
+            </h3>
 
-              <p>
-                {{ step.description }}
-              </p>
-
-            </div>
+            <p>
+              {{ step.description }}
+            </p>
 
           </div>
+
+        </div>
 
         }
 
@@ -405,76 +411,76 @@
 
       @for (card of majorArcana; track card.name; let i = $index) {
 
-        <article class="major-card">
+      <article class="major-card">
 
-          <div class="major-card-top">
+        <div class="major-card-top">
 
-            <span class="major-number">
-              {{ card.number }}
+          <span class="major-number">
+            {{ card.number }}
+          </span>
+
+          <span class="major-symbol">
+            ✦
+          </span>
+
+        </div>
+
+        <div class="major-card-art">
+
+          <div class="art-halo"></div>
+
+          <div class="art-symbol">
+            {{ i === 0 ? '✧' :
+            i === 1 ? '☿' :
+            i === 2 ? '☾' :
+            i === 3 ? '♀' :
+            i === 4 ? '♜' :
+            i === 5 ? '✝' :
+            i === 6 ? '♡' :
+            i === 7 ? '◆' :
+            i === 8 ? '∞' :
+            i === 9 ? '☾' :
+            i === 10 ? '◉' :
+            i === 11 ? '⚖' :
+            i === 12 ? '⌁' :
+            i === 13 ? '✦' :
+            i === 14 ? '◐' :
+            i === 15 ? '♄' :
+            i === 16 ? 'ϟ' :
+            i === 17 ? '☆' :
+            i === 18 ? '☽' :
+            i === 19 ? '☀' :
+            i === 20 ? '◉' :
+            '◎' }}
+          </div>
+
+        </div>
+
+        <div class="major-card-body">
+
+          <h3>
+            {{ card.name }}
+          </h3>
+
+          <p>
+            {{ card.meaning }}
+          </p>
+
+          <div class="keyword-list">
+
+            @for (keyword of card.keywords; track keyword) {
+
+            <span>
+              {{ keyword }}
             </span>
 
-            <span class="major-symbol">
-              ✦
-            </span>
+            }
 
           </div>
 
-          <div class="major-card-art">
+        </div>
 
-            <div class="art-halo"></div>
-
-            <div class="art-symbol">
-              {{ i === 0 ? '✧' :
-                 i === 1 ? '☿' :
-                 i === 2 ? '☾' :
-                 i === 3 ? '♀' :
-                 i === 4 ? '♜' :
-                 i === 5 ? '✝' :
-                 i === 6 ? '♡' :
-                 i === 7 ? '◆' :
-                 i === 8 ? '∞' :
-                 i === 9 ? '☾' :
-                 i === 10 ? '◉' :
-                 i === 11 ? '⚖' :
-                 i === 12 ? '⌁' :
-                 i === 13 ? '✦' :
-                 i === 14 ? '◐' :
-                 i === 15 ? '♄' :
-                 i === 16 ? 'ϟ' :
-                 i === 17 ? '☆' :
-                 i === 18 ? '☽' :
-                 i === 19 ? '☀' :
-                 i === 20 ? '◉' :
-                 '◎' }}
-            </div>
-
-          </div>
-
-          <div class="major-card-body">
-
-            <h3>
-              {{ card.name }}
-            </h3>
-
-            <p>
-              {{ card.meaning }}
-            </p>
-
-            <div class="keyword-list">
-
-              @for (keyword of card.keywords; track keyword) {
-
-                <span>
-                  {{ keyword }}
-                </span>
-
-              }
-
-            </div>
-
-          </div>
-
-        </article>
+      </article>
 
       }
 
@@ -517,57 +523,57 @@
 
       @for (suit of minorArcana; track suit.name) {
 
-        <article class="suit-card">
+      <article class="suit-card">
 
-          <div class="suit-header">
+        <div class="suit-header">
 
-            <div class="suit-symbol">
+          <div class="suit-symbol">
 
-              @if (suit.name === 'Wands') {
-                🔥
-              } @else if (suit.name === 'Cups') {
-                ♡
-              } @else if (suit.name === 'Swords') {
-                ⚔
-              } @else {
-                ◇
-              }
-
-            </div>
-
-            <div>
-
-              <span class="suit-element">
-                ELEMENT · {{ suit.element }}
-              </span>
-
-              <h3>
-                {{ suit.name }}
-              </h3>
-
-            </div>
-
-          </div>
-
-
-          <p class="suit-description">
-            {{ suit.description }}
-          </p>
-
-
-          <div class="suit-card-list">
-
-            @for (card of suit.cards; track card) {
-
-              <span>
-                {{ card }}
-              </span>
-
+            @if (suit.name === 'Wands') {
+            🔥
+            } @else if (suit.name === 'Cups') {
+            ♡
+            } @else if (suit.name === 'Swords') {
+            ⚔
+            } @else {
+            ◇
             }
 
           </div>
 
-        </article>
+          <div>
+
+            <span class="suit-element">
+              ELEMENT · {{ suit.element }}
+            </span>
+
+            <h3>
+              {{ suit.name }}
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <p class="suit-description">
+          {{ suit.description }}
+        </p>
+
+
+        <div class="suit-card-list">
+
+          @for (card of suit.cards; track card) {
+
+          <span>
+            {{ card }}
+          </span>
+
+          }
+
+        </div>
+
+      </article>
 
       }
 
@@ -613,65 +619,65 @@
 
       @for (spread of spreads; track spread.number) {
 
-        <article class="spread-card">
+      <article class="spread-card">
 
-          <span class="spread-number">
-            {{ spread.number }}
+        <span class="spread-number">
+          {{ spread.number }}
+        </span>
+
+        <div class="spread-visual">
+
+          @if (spread.number === '01') {
+
+          <div class="spread-one-card">
+            <span>✦</span>
+          </div>
+
+          } @else if (spread.number === '02') {
+
+          <div class="spread-three-cards">
+            <span>☾</span>
+            <span>✦</span>
+            <span>☀</span>
+          </div>
+
+          } @else if (spread.number === '03') {
+
+          <div class="spread-cross">
+            <span>✦</span>
+            <span>☾</span>
+            <span>◇</span>
+            <span>☀</span>
+            <span>☆</span>
+          </div>
+
+          } @else {
+
+          <div class="spread-heart">
+            ♡
+          </div>
+
+          }
+
+        </div>
+
+        <div class="spread-body">
+
+          <span>
+            {{ spread.subtitle }}
           </span>
 
-          <div class="spread-visual">
+          <h3>
+            {{ spread.title }}
+          </h3>
 
-            @if (spread.number === '01') {
+          <p>
+            {{ spread.description }}
+          </p>
 
-              <div class="spread-one-card">
-                <span>✦</span>
-              </div>
+        </div>
 
-            } @else if (spread.number === '02') {
-
-              <div class="spread-three-cards">
-                <span>☾</span>
-                <span>✦</span>
-                <span>☀</span>
-              </div>
-
-            } @else if (spread.number === '03') {
-
-              <div class="spread-cross">
-                <span>✦</span>
-                <span>☾</span>
-                <span>◇</span>
-                <span>☀</span>
-                <span>☆</span>
-              </div>
-
-            } @else {
-
-              <div class="spread-heart">
-                ♡
-              </div>
-
-            }
-
-          </div>
-
-          <div class="spread-body">
-
-            <span>
-              {{ spread.subtitle }}
-            </span>
-
-            <h3>
-              {{ spread.title }}
-            </h3>
-
-            <p>
-              {{ spread.description }}
-            </p>
-
-          </div>
-
-        </article>
+      </article>
 
       }
 
@@ -713,21 +719,21 @@
 
       @for (area of guidanceAreas; track area.title) {
 
-        <article class="guidance-card">
+      <article class="guidance-card">
 
-          <div class="guidance-icon">
-            {{ area.icon }}
-          </div>
+        <div class="guidance-icon">
+          {{ area.icon }}
+        </div>
 
-          <h3>
-            {{ area.title }}
-          </h3>
+        <h3>
+          {{ area.title }}
+        </h3>
 
-          <p>
-            {{ area.description }}
-          </p>
+        <p>
+          {{ area.description }}
+        </p>
 
-        </article>
+      </article>
 
       }
 
@@ -799,9 +805,7 @@
           questions people often ask before their first reading.
         </p>
 
-        <a
-          routerLink="/free-services/pick-a-card"
-          class="btn-primary">
+        <a routerLink="/free-services/pick-a-card" class="btn-primary">
           Try a Free Reading
           <span>→</span>
         </a>
@@ -813,38 +817,33 @@
 
         @for (faq of faqs; track faq.question; let i = $index) {
 
-          <div
-            class="faq-item"
-            [class.open]="openFaq === i">
+        <div class="faq-item" [class.open]="openFaq === i">
 
-            <button
-              type="button"
-              class="faq-question"
-              (click)="toggleFaq(i)">
+          <button type="button" class="faq-question" (click)="toggleFaq(i)">
 
-              <span>
-                {{ faq.question }}
-              </span>
+            <span>
+              {{ faq.question }}
+            </span>
 
-              <span class="faq-toggle">
-                {{ openFaq === i ? '−' : '+' }}
-              </span>
+            <span class="faq-toggle">
+              {{ openFaq === i ? '−' : '+' }}
+            </span>
 
-            </button>
+          </button>
 
-            @if (openFaq === i) {
+          @if (openFaq === i) {
 
-              <div class="faq-answer">
+          <div class="faq-answer">
 
-                <p>
-                  {{ faq.answer }}
-                </p>
-
-              </div>
-
-            }
+            <p>
+              {{ faq.answer }}
+            </p>
 
           </div>
+
+          }
+
+        </div>
 
         }
 
@@ -893,9 +892,7 @@
       and choose a card for your free reading.
     </p>
 
-    <a
-      routerLink="/free-services/pick-a-card"
-      class="btn-primary cta-btn">
+    <a routerLink="/free-services/pick-a-card" class="btn-primary cta-btn">
       Check Your Reading for Free
       <span>→</span>
     </a>

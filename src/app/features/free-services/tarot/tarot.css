@@ -43,6 +43,8 @@ html {
 
 .section-heading.centered {
   display: block;
+  align-items: center;
+
   max-width: 760px;
   margin: 0 auto 60px;
   text-align: center;
@@ -157,16 +159,12 @@ html {
   align-items: center;
   padding: 80px 24px 105px;
   background:
-    radial-gradient(
-      circle at 78% 42%,
+    radial-gradient(circle at 78% 42%,
       rgba(255, 181, 92, .22),
-      transparent 29%
-    ),
-    radial-gradient(
-      circle at 15% 18%,
+      transparent 29%),
+    radial-gradient(circle at 15% 18%,
       rgba(255, 223, 183, .45),
-      transparent 28%
-    ),
+      transparent 28%),
     #fffaf3;
 }
 
@@ -276,12 +274,10 @@ html {
   padding: 11px;
   border-radius: 22px;
   background:
-    linear-gradient(
-      145deg,
+    linear-gradient(145deg,
       #f8a34a,
       #df6e12 45%,
-      #f6b45f
-    );
+      #f6b45f);
   box-shadow:
     0 35px 70px rgba(75, 42, 16, .22),
     0 8px 20px rgba(75, 42, 16, .12);
@@ -302,11 +298,9 @@ html {
   border: 1px solid rgba(255, 255, 255, .65);
   border-radius: 15px;
   background:
-    radial-gradient(
-      circle at 50% 40%,
+    radial-gradient(circle at 50% 40%,
       rgba(255, 196, 103, .28),
-      transparent 33%
-    ),
+      transparent 33%),
     #d96c13;
 }
 
@@ -785,7 +779,7 @@ html {
   max-width: 500px;
 }
 
-.process-intro > p {
+.process-intro>p {
   max-width: 470px;
   margin: 28px 0 0;
   color: #716b64;
@@ -851,11 +845,9 @@ html {
 
 .major-section {
   background:
-    radial-gradient(
-      circle at 50% 0,
+    radial-gradient(circle at 50% 0,
       rgba(255, 179, 91, .13),
-      transparent 35%
-    ),
+      transparent 35%),
     #fffaf3;
 }
 
@@ -910,11 +902,9 @@ html {
   overflow: hidden;
   border-radius: 13px;
   background:
-    radial-gradient(
-      circle at center,
+    radial-gradient(circle at center,
       rgba(255, 204, 133, .48),
-      transparent 40%
-    ),
+      transparent 40%),
     #f8e9d6;
 }
 
@@ -1203,7 +1193,7 @@ html {
   padding: 24px;
 }
 
-.spread-body > span {
+.spread-body>span {
   color: #e97916;
   font-size: 9px;
   font-weight: 800;
@@ -1294,11 +1284,9 @@ html {
   padding: 125px 24px;
   overflow: hidden;
   background:
-    radial-gradient(
-      circle at 50% 40%,
+    radial-gradient(circle at 50% 40%,
       rgba(255, 192, 113, .28),
-      transparent 34%
-    ),
+      transparent 34%),
     #f8e9d7;
   text-align: center;
 }
@@ -1376,7 +1364,7 @@ html {
   max-width: 440px;
 }
 
-.faq-intro > p {
+.faq-intro>p {
   max-width: 410px;
   margin: 24px 0 30px;
   color: #756e67;
@@ -1675,6 +1663,7 @@ html {
 }
 
 @keyframes cardFloat {
+
   0%,
   100% {
     transform: rotate(4deg) translateY(0);
@@ -1686,6 +1675,7 @@ html {
 }
 
 @keyframes miniFloatOne {
+
   0%,
   100% {
     transform: rotate(-13deg) translateY(0);
@@ -1697,6 +1687,7 @@ html {
 }
 
 @keyframes miniFloatTwo {
+
   0%,
   100% {
     transform: rotate(13deg) translateY(0);
@@ -1708,6 +1699,7 @@ html {
 }
 
 @keyframes floatSymbol {
+
   0%,
   100% {
     transform: translateY(0);
@@ -1719,6 +1711,7 @@ html {
 }
 
 @keyframes sparkle {
+
   0%,
   100% {
     opacity: .55;
